@@ -121,7 +121,7 @@ export async function GET() {
 
     try {
         const response = await fetch(
-            "https://game-night-roulette.ellipticbean.workers.dev/",
+            "https://game-night-roulette.ellipticbean.workers.dev/health",
             {
                 cache: "no-store",
                 signal: AbortSignal.timeout(5000),

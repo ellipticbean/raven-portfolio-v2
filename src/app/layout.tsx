@@ -18,6 +18,10 @@ const siteDescription =
   "Developer portfolio for Raven, featuring Discord bots, web apps, integrations, automation, and software built to solve oddly specific problems.";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://raven-portfolio-v2.ellipticbean.workers.dev"),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: siteTitle,
     template: "%s | Raven",
