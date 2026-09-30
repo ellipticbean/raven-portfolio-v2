@@ -2,7 +2,11 @@ export type ProjectMetric = {
     label: string;
     value: string;
 };
-
+export type ProjectMedia = {
+    src: string;
+    alt: string;
+    caption?: string;
+};
 export type ProjectSection = {
     title: string;
     description: string;
@@ -22,7 +26,7 @@ export type Project = {
     solution?: string;
 
     metrics?: ProjectMetric[];
-
+    media?: ProjectMedia[];
     technicalHighlights?: ProjectSection[];
 
     challenges?: ProjectSection[];
@@ -80,7 +84,44 @@ export const projects: Project[] = [
                 value: "PostgreSQL",
             },
         ],
-
+        media: [
+            {
+                src: "/projects/creator-commission-manager/panel.png",
+                alt: "Creator Commission Manager public commission panel in Discord",
+                caption:
+                    "A public commission panel where customers can see availability and submit a new commission request.",
+            },
+            {
+                src: "/projects/creator-commission-manager/request-management.png",
+                alt: "Creator Commission Manager request management controls in Discord",
+                caption:
+                    "A submitted commission request with creator controls for accepting, rejecting, and progressing the workflow.",
+            },
+            {
+                src: "/projects/creator-commission-manager/management-tools.png",
+                alt: "Creator Commission Manager deadline payment and notes tools",
+                caption:
+                    "Creator management tools showing deadline tracking, commission price, payment status, and private notes.",
+            },
+            {
+                src: "/projects/creator-commission-manager/dashboard.png",
+                alt: "Creator Commission Manager dashboard in Discord",
+                caption:
+                    "The commission dashboard provides a quick overview of queues, capacity, active work, payments, deadlines, and priority requests.",
+            },
+            {
+                src: "/projects/creator-commission-manager/completed-workflow.png",
+                alt: "Creator Commission Manager delivered commission request",
+                caption:
+                    "A commission at the delivered stage with its deadline, final price, paid-in-full status, and saved creator notes.",
+            },
+            {
+                src: "/projects/creator-commission-manager/access-controls.png",
+                alt: "Creator Commission Manager server access settings",
+                caption:
+                    "Server-level access controls determine who can use commission management tools.",
+            },
+        ],
         technicalHighlights: [
             {
                 title: "Persistent PostgreSQL architecture",

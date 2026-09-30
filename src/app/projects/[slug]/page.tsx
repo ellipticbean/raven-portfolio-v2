@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
+import ProjectGallery from "@/components/ProjectGallery";
 
 type ProjectPageProps = {
     params: Promise<{
@@ -175,6 +176,9 @@ export default async function ProjectPage({
                     </p>
                 </div>
             </section>
+            {project.media && project.media.length > 0 && (
+                <ProjectGallery items={project.media} />
+            )}
             {(project.problem || project.solution) && (
                 <section className="page-container border-t border-[var(--border)] py-24">
                     <div className="grid gap-5 lg:grid-cols-2">
