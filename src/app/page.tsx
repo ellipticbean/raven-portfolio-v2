@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import CommandPaletteLauncher from "@/components/CommandPaletteLauncher";
 import SkillsExplorer from "@/components/SkillsExplorer";
@@ -166,14 +167,24 @@ export default function Home() {
                 <span className="mono text-[11px] uppercase tracking-[0.16em] text-[var(--text-muted)]">
                   0{index + 1}
                 </span>
-
+                {project.media?.[0] && (
+                  <div className="mt-6 overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface-1)]">
+                    <Image
+                      src={project.media[0].src}
+                      alt={project.media[0].alt}
+                      width={1200}
+                      height={675}
+                      className="h-40 w-full object-cover object-top transition duration-500 group-hover:scale-[1.02]"
+                    />
+                  </div>
+                )}
                 <span className="mono flex items-center gap-2 text-[10px] uppercase tracking-[0.12em] text-success">
                   <StatusDot />
                   {project.status}
                 </span>
               </div>
 
-              <div className="mt-auto">
+              <div className="mt-6">
                 <p className="mono mb-3 text-xs uppercase tracking-[0.14em] text-accent">
                   {project.type}
                 </p>
