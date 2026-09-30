@@ -168,25 +168,33 @@ export default function Home() {
                   0{index + 1}
                 </span>
 
-                {project.media?.[0] && (
-                  <div className="mt-6 overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface-1)]">
-                    <Image
-                      src={project.media[0].src}
-                      alt={project.media[0].alt}
-                      width={1200}
-                      height={675}
-                      className="h-40 w-full object-cover object-top transition duration-500 group-hover:scale-[1.02]"
-                    />
-                  </div>
-                )}
-
                 <span className="mono flex items-center gap-2 text-[10px] uppercase tracking-[0.12em] text-success">
                   <StatusDot />
                   {project.status}
                 </span>
               </div>
 
-              <div className="mt-6">
+              {project.media?.[0] && (
+                <div className="mt-6 overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface-1)]">
+                  <Image
+                    src={
+                      project.slug === "game-night-roulette"
+                        ? "/projects/game-night-roulette/result.png"
+                        : project.media[0].src
+                    }
+                    alt={
+                      project.slug === "game-night-roulette"
+                        ? "Game Night Roulette selected game result"
+                        : project.media[0].alt
+                    }
+                    width={1200}
+                    height={675}
+                    className="h-40 w-full object-cover object-top transition duration-500 group-hover:scale-[1.02]"
+                  />
+                </div>
+              )}
+
+              <div className="mt-6 flex flex-1 flex-col">
                 <p className="mono mb-3 text-xs uppercase tracking-[0.14em] text-accent">
                   {project.type}
                 </p>
@@ -199,6 +207,25 @@ export default function Home() {
                   {project.description}
                 </p>
 
+                {project.metrics && project.metrics.length > 0 && (
+                  <div className="mt-5 grid grid-cols-2 gap-2">
+                    {project.metrics.slice(0, 2).map((metric) => (
+                      <div
+                        key={metric.label}
+                        className="rounded-lg border border-[var(--border)] bg-[var(--surface-1)] px-3 py-2.5"
+                      >
+                        <p className="text-sm font-semibold text-white">
+                          {metric.value}
+                        </p>
+
+                        <p className="mono mt-1 text-[9px] uppercase tracking-[0.1em] text-[var(--text-muted)]">
+                          {metric.label}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
                 <div className="mt-6 flex flex-wrap gap-2">
                   {project.tech.map((item) => (
                     <span
@@ -210,14 +237,16 @@ export default function Home() {
                   ))}
                 </div>
 
-                <div className="mt-7 flex items-center justify-between border-t border-[var(--border)] pt-5">
-                  <span className="mono text-[10px] uppercase tracking-[0.14em] text-[var(--text-muted)]">
-                    View case study
-                  </span>
+                <div className="mt-auto pt-7">
+                  <div className="flex items-center justify-between border-t border-[var(--border)] pt-5">
+                    <span className="mono text-[10px] uppercase tracking-[0.14em] text-[var(--text-muted)]">
+                      View case study
+                    </span>
 
-                  <span className="text-accent transition-transform duration-300 group-hover:translate-x-1">
-                    →
-                  </span>
+                    <span className="text-accent transition-transform duration-300 group-hover:translate-x-1">
+                      →
+                    </span>
+                  </div>
                 </div>
               </div>
             </Link>
