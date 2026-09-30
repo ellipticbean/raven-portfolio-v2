@@ -325,16 +325,126 @@ export const projects: Project[] = [
         name: "Game Night Roulette",
         type: "Web App",
         description:
-            "A lightweight tool for turning indecision into a game by randomly choosing what your group should play.",
-        tech: ["JavaScript", "Web"],
+            "A Steam-connected game picker that helps players decide what to play using personal libraries, filters, favorites, playtime data, and live Steam activity.",
+        tech: [
+            "JavaScript",
+            "Cloudflare Workers",
+            "Steam API",
+        ],
         status: "Live",
         summary:
-            "A small web project built around one simple problem: deciding what to play.",
+            "A web app that turns a Steam library into a personalized game picker, combining random selection with group-size and mood filters, Steam playtime, live player counts, favorites, and recent-pick history.",
         features: [
-            "Random game selection",
-            "Simple browser-based interface",
-            "Fast decision-making workflow",
-            "Lightweight client-side experience",
+            "Steam sign-in and library import",
+            "Custom personal game library",
+            "Mood and genre filtering",
+            "Group-size filtering",
+            "Steam playtime display",
+            "Live Steam player counts",
+            "Favorites",
+            "Recent pick history",
+            "Dark and light themes",
+            "Randomized game selection",
+        ],
+        problem:
+            "Game libraries get large enough that choosing what to play can become its own problem, especially when a group needs something that fits a specific player count, mood, or amount of available time.",
+
+        solution:
+            "Game Night Roulette turns a personal game library into a filtered recommendation tool. It can import owned Steam games, combine them with custom entries, filter by mood and group size, and enrich results with Steam playtime and live player-count data.",
+
+        metrics: [
+            {
+                label: "Platform",
+                value: "Web",
+            },
+            {
+                label: "Steam integration",
+                value: "Live",
+            },
+            {
+                label: "Filters",
+                value: "Mood + Group Size",
+            },
+            {
+                label: "Deployment",
+                value: "Cloudflare",
+            },
+        ],
+        media: [
+            {
+                src: "/projects/game-night-roulette/home.png",
+                alt: "Game Night Roulette main interface",
+                caption:
+                    "The main picker combines a connected Steam library with game-pool, group-size, and mood filters.",
+            },
+            {
+                src: "/projects/game-night-roulette/game-list.png",
+                alt: "Game Night Roulette personal game library",
+                caption:
+                    "Imported games can be managed individually with playtime, mood, player-count, and platform metadata.",
+            },
+            {
+                src: "/projects/game-night-roulette/result.png",
+                alt: "Game Night Roulette selected game result",
+                caption:
+                    "A completed recommendation showing the selected game, genre, compatible group sizes, Steam playtime, live Steam activity, and favorite controls.",
+            },
+        ],
+        technicalHighlights: [
+            {
+                title: "Steam authentication and library import",
+                description:
+                    "The app connects to Steam so users can sign in and import their owned game library instead of manually recreating it.",
+            },
+            {
+                title: "Cloudflare Worker backend",
+                description:
+                    "Steam authentication, session handling, library requests, and live player-count lookups are handled through Cloudflare Workers rather than exposing Steam API logic directly in the browser.",
+            },
+            {
+                title: "Metadata-driven filtering",
+                description:
+                    "Games carry mood, genre, and supported player-count metadata so the picker can build a valid pool before randomly selecting a result.",
+            },
+            {
+                title: "Steam-enriched recommendations",
+                description:
+                    "When a selected game is linked to Steam, the result can include the user's recorded playtime and the game's current live Steam player count.",
+            },
+            {
+                title: "Persistent browser preferences",
+                description:
+                    "Custom games, favorites, and other user-facing state are stored locally so the picker remains useful between visits without requiring a separate account system.",
+            },
+        ],
+        challenges: [
+            {
+                title: "Moving from a local picker to Steam integration",
+                description:
+                    "The project started as a simple browser-based game picker, but connecting real Steam accounts introduced authentication, session handling, API requests, imported library data, and backend routing.",
+            },
+            {
+                title: "Matching imported games to useful metadata",
+                description:
+                    "Steam provides ownership and playtime data, but the picker also needs mood and group-size information. Imported titles therefore have to work alongside the app's own metadata so filters remain useful.",
+            },
+            {
+                title: "Protecting Steam-related backend logic",
+                description:
+                    "Steam authentication and API operations could not safely live entirely in client-side JavaScript, so those requests were moved behind Cloudflare Worker routes while keeping the frontend experience seamless.",
+            },
+        ],
+        lessons: [
+            "A simple project can grow into a much stronger portfolio piece when new features solve real limitations instead of being added only for complexity.",
+            "Third-party integrations are easier to maintain when authentication, API access, and client-side presentation are kept clearly separated.",
+            "Imported data is most useful when it is combined with application-specific metadata instead of being treated as complete on its own.",
+            "Local persistence can be the right choice for personal preferences and lightweight state when a full user-account database would add unnecessary complexity.",
+        ],
+        links: [
+            {
+                label: "Open App",
+                href: "https://game-night-roulette.ellipticbean.workers.dev/",
+            },
         ],
     },
 ];
