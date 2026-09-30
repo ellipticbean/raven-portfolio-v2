@@ -27,6 +27,12 @@ const commands = [
     action: () => document.querySelector("#activity")?.scrollIntoView(),
   },
   {
+    name: "Terminal",
+    description: "Explore the portfolio through the interactive terminal",
+    shortcut: ">",
+    action: () => document.querySelector("#terminal")?.scrollIntoView(),
+  },
+  {
     name: "About",
     description: "Learn more about me",
     shortcut: "A",

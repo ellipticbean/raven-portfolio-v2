@@ -3,6 +3,8 @@ import CommandPaletteLauncher from "@/components/CommandPaletteLauncher";
 import SkillsExplorer from "@/components/SkillsExplorer";
 import ActivityTimeline from "@/components/ActivityTimeline";
 import LiveProjectStatus from "@/components/LiveProjectStatus";
+import Terminal from "@/components/Terminal";
+import ProjectInquiryForm from "@/components/ProjectInquiryForm";
 import { projects } from "@/data/projects";
 
 function StatusDot() {
@@ -46,7 +48,12 @@ export default function Home() {
           >
             Activity
           </a>
-
+          <a
+            href="#terminal"
+            className="transition-colors hover:text-white"
+          >
+            Terminal
+          </a>
           <a
             href="#about"
             className="transition-colors hover:text-white"
@@ -196,6 +203,7 @@ export default function Home() {
       </section>
       <SkillsExplorer />
       <ActivityTimeline />
+      <Terminal />
       <section
         id="about"
         className="page-container border-t border-[var(--border)] py-28"
@@ -249,12 +257,18 @@ export default function Home() {
               ideas.
             </p>
 
-            <a
-              href="mailto:ravenberries@proton.me"
-              className="mt-8 inline-flex rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-white transition hover:bg-accent-bright"
-            >
-              ravenberries@proton.me
-            </a>
+            <div className="mt-10">
+              <ProjectInquiryForm />
+            </div>
+            <p className="mt-6 text-sm text-[var(--text-muted)]">
+              Prefer a normal email?{" "}
+              <a
+                href="mailto:ravenberries@proton.me"
+                className="text-accent transition hover:text-accent-bright"
+              >
+                ravenberries@proton.me
+              </a>
+            </p>
           </div>
         </div>
       </section>
