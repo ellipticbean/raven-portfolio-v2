@@ -167,6 +167,7 @@ export default function Home() {
                 <span className="mono text-[11px] uppercase tracking-[0.16em] text-[var(--text-muted)]">
                   0{index + 1}
                 </span>
+
                 {project.media?.[0] && (
                   <div className="mt-6 overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface-1)]">
                     <Image
@@ -178,6 +179,7 @@ export default function Home() {
                     />
                   </div>
                 )}
+
                 <span className="mono flex items-center gap-2 text-[10px] uppercase tracking-[0.12em] text-success">
                   <StatusDot />
                   {project.status}
@@ -206,6 +208,16 @@ export default function Home() {
                       {item}
                     </span>
                   ))}
+                </div>
+
+                <div className="mt-7 flex items-center justify-between border-t border-[var(--border)] pt-5">
+                  <span className="mono text-[10px] uppercase tracking-[0.14em] text-[var(--text-muted)]">
+                    View case study
+                  </span>
+
+                  <span className="text-accent transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
                 </div>
               </div>
             </Link>
