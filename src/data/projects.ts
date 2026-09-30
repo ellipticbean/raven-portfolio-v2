@@ -229,7 +229,38 @@ export const projects: Project[] = [
                 value: "Railway",
             },
         ],
-
+        media: [
+            {
+                src: "/projects/tf2-random-map-picker/map-result.png",
+                alt: "TF2 Random Map Picker random map result in Discord",
+                caption:
+                    "A standard map roll showing the selected map, active filters, matching map pool, and interactive reroll controls.",
+            },
+            {
+                src: "/projects/tf2-random-map-picker/filtered-map.png",
+                alt: "TF2 Random Map Picker filtered Smissmas Payload result",
+                caption:
+                    "A filtered map roll using Payload, Smissmas, and beta-map settings to narrow the available map pool.",
+            },
+            {
+                src: "/projects/tf2-random-map-picker/interactive-picker.png",
+                alt: "TF2 Random Map Picker mention-based interactive picker",
+                caption:
+                    "Mentioning the bot opens a no-slash interactive picker with quick-roll and filter-selection options.",
+            },
+            {
+                src: "/projects/tf2-random-map-picker/map-info.png",
+                alt: "TF2 Random Map Picker map information lookup for Dustbowl",
+                caption:
+                    "The map information command shows a map's game mode, internal map code, season, and beta status.",
+            },
+            {
+                src: "/projects/tf2-random-map-picker/stats.png",
+                alt: "TF2 Random Map Picker database statistics",
+                caption:
+                    "Database statistics summarize standard maps, beta maps, supported game modes, and seasonal map counts.",
+            },
+        ],
         technicalHighlights: [
             {
                 title: "Structured TF2 map dataset",
