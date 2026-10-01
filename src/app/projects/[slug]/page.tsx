@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
 import ProjectGallery from "@/components/ProjectGallery";
+import TF2BotPlayground from "@/components/TF2BotPlayground";
 
 type ProjectPageProps = {
     params: Promise<{
@@ -179,6 +180,7 @@ export default async function ProjectPage({
             {project.media && project.media.length > 0 && (
                 <ProjectGallery items={project.media} />
             )}
+            {project.slug === "tf2-random-map-picker" && <TF2BotPlayground />}
             {(project.problem || project.solution) && (
                 <section className="page-container border-t border-[var(--border)] py-24">
                     <div className="grid gap-5 lg:grid-cols-2">
@@ -244,6 +246,7 @@ export default async function ProjectPage({
                     ))}
                 </div>
             </section>
+            
             {project.technicalHighlights &&
                 project.technicalHighlights.length > 0 && (
                     <section className="page-container border-t border-[var(--border)] py-24">
