@@ -84,8 +84,8 @@ export default function Home() {
           </div>
 
           <h1 className="max-w-4xl text-5xl font-semibold leading-[0.98] tracking-[-0.055em] text-white sm:text-6xl lg:text-8xl">
-            I build useful things for{" "}
-            <span className="text-accent">oddly specific</span> problems.
+            I make bots, tools, and{" "}
+            <span className="text-accent">small web projects.</span>
           </h1>
 
           <p className="mt-8 max-w-2xl text-base leading-8 text-[var(--text-secondary)] sm:text-lg">

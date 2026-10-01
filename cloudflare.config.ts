@@ -18,7 +18,7 @@ export default defineConfig({
     name: "raven-portfolio-v2",
     entrypoint: "vinext/server/fetch-handler",
     compatibilityDate: "2026-09-30",
-    compatibilityFlags: ["nodejs_compat"],
+    compatibilityFlags: ["nodejs_compat", "global_fetch_strictly_public"],
     assets: { notFoundHandling: "none" },
     env: {
       ...responseStore.applicationWorker.env,
