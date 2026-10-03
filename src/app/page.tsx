@@ -6,6 +6,7 @@ import ActivityTimeline from "@/components/ActivityTimeline";
 import LiveProjectStatus from "@/components/LiveProjectStatus";
 import Terminal from "@/components/Terminal";
 import ProjectInquiryForm from "@/components/ProjectInquiryForm";
+import ThemeToggle from "@/components/ThemeToggle";
 import { projects } from "@/data/projects";
 
 function StatusDot() {
@@ -70,7 +71,10 @@ export default function Home() {
           </a>
         </nav>
 
-        <CommandPaletteLauncher />
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <CommandPaletteLauncher />
+        </div>
       </header>
 
       <section
