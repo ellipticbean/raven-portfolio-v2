@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
 import ProjectGallery from "@/components/ProjectGallery";
 import TF2BotPlayground from "@/components/TF2BotPlayground";
+import ThemeToggle from "@/components/ThemeToggle";
 
 type ProjectPageProps = {
     params: Promise<{
@@ -70,12 +71,16 @@ export default async function ProjectPage({
                     RAVEN<span className="text-accent">.</span>
                 </Link>
 
-                <Link
-                    href="/#projects"
-                    className="mono rounded-lg border border-[var(--border)] bg-[var(--surface-1)] px-3 py-2 text-xs text-[var(--text-secondary)] transition hover:border-[var(--border-strong)] hover:text-white"
-                >
-                    ← Projects
-                </Link>
+                <div className="flex items-center gap-2">
+                    <ThemeToggle />
+
+                    <Link
+                        href="/#projects"
+                        className="mono rounded-lg border border-[var(--border)] bg-[var(--surface-1)] px-3 py-2 text-xs text-[var(--text-secondary)] transition hover:border-[var(--border-strong)] hover:text-white"
+                    >
+                        ← Projects
+                    </Link>
+                </div>
             </header>
 
             <section className="page-container relative py-20 sm:py-28">
