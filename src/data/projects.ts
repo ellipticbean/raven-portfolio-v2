@@ -41,6 +41,83 @@ export type Project = {
 
 export const projects: Project[] = [
     {
+        slug: "melo",
+        name: "Melo",
+        type: "Discord Bot",
+        description:
+            "A Last.fm companion bot for Discord, currently in development, focused on now-playing commands, listening stats, and server music discovery.",
+        tech: ["TypeScript", "Discord.js", "Last.fm API"],
+        status: "In Development",
+        summary:
+            "A new Discord bot inspired by the best parts of Last.fm community bots, built around simple slash commands and a maintainable architecture.",
+        features: [
+            "Last.fm account linking",
+            "Now-playing and recent-track commands",
+            "Personal top artists, albums, and tracks",
+            "Server listening statistics",
+            "Who Knows-style artist rankings",
+            "Future crowns, charts, and listening-history features",
+        ],
+        problem:
+            "Last.fm communities rely on Discord bots to turn individual scrobbles into shared music discovery, rankings, and lightweight social features. Existing bots can disappear or become difficult to maintain when their infrastructure grows too complex.",
+
+        solution:
+            "Melo is being built as a smaller, maintainable Last.fm Discord bot using slash commands and the Last.fm API first, with persistent server-wide statistics added only where they provide real value.",
+
+        metrics: [
+            {
+                label: "Status",
+                value: "In Development",
+            },
+            {
+                label: "Platform",
+                value: "Discord",
+            },
+            {
+                label: "Music API",
+                value: "Last.fm",
+            },
+            {
+                label: "Language",
+                value: "TypeScript",
+            },
+        ],
+        technicalHighlights: [
+            {
+                title: "API-first architecture",
+                description:
+                    "The first version focuses on Last.fm API requests for user-level commands so useful features can ship without requiring a large indexing service from day one.",
+            },
+            {
+                title: "Slash-command foundation",
+                description:
+                    "Commands are being designed around Discord's current slash-command system rather than depending on legacy message-command behavior.",
+            },
+            {
+                title: "Expandable persistence",
+                description:
+                    "The project is structured so account linking and later server-wide listening features can gain persistent storage without forcing every command through a heavy database layer.",
+            },
+        ],
+        challenges: [
+            {
+                title: "Keeping server-wide statistics maintainable",
+                description:
+                    "Features such as artist rankings and crowns eventually need more persistent listening data than a simple Last.fm request, so the storage model needs to grow carefully.",
+            },
+            {
+                title: "Rebuilding familiar community features without recreating unnecessary complexity",
+                description:
+                    "The goal is to preserve the useful social side of Last.fm Discord bots while keeping the codebase and hosting requirements manageable.",
+            },
+        ],
+        lessons: [
+            "Start with API-backed features that deliver immediate value before introducing heavier indexing infrastructure.",
+            "Design new Discord bots around slash commands and current platform behavior from the beginning.",
+            "A smaller architecture is easier to operate, debug, and extend as real usage reveals which features deserve more infrastructure.",
+        ],
+    },
+    {
         slug: "creator-commission-manager",
         name: "Creator Commission Manager",
         type: "Discord Bot",
