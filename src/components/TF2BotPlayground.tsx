@@ -216,7 +216,7 @@ export default function TF2BotPlayground() {
                 </p>
             </div>
 
-            <div className="overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface-1)]">
+            <div className="theme-dark-demo overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--surface-1)]">
                 <div className="flex flex-wrap gap-2 border-b border-[var(--border)] p-4">
                     <button
                         type="button"
