@@ -634,3 +634,29 @@ html[data-theme="light"] .retro-case-study-card::before {
   background: linear-gradient(180deg, #eaf0d1, #d3dda8);
   color: #304223;
 }
+/* ====================================
+   ANIMATED FOREST BACKGROUND
+   ==================================== */
+
+html:not([data-theme="light"]) body {
+  background-color: #08110c;
+
+  background-image:
+    linear-gradient(
+      rgba(5, 12, 8, 0.65),
+      rgba(5, 12, 8, 0.65)
+    ),
+    url("/forest-bg.gif");
+
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Keep a plain background for reduced-motion users */
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-theme="light"]) body {
+    background-image: none;
+  }
+}
