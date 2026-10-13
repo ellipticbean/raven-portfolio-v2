@@ -660,3 +660,72 @@ html:not([data-theme="light"]) body {
     background-image: none;
   }
 }
+
+/* ====================================
+   DECORATIVE PROFILE VINES
+   ==================================== */
+
+.vine-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+.panel-vine {
+  position: absolute;
+  top: 41px;
+  bottom: 8px;
+  width: 85px;
+  height: calc(100% - 49px);
+  object-fit: fill;
+  pointer-events: none;
+  opacity: 0.9;
+  z-index: 1;
+  filter: drop-shadow(2px 2px 1px rgba(20, 35, 20, 0.2));
+}
+
+
+
+.panel-vine-left {
+  left: 4px;
+}
+
+.panel-vine-right {
+  right: 4px;
+  transform: scaleX(-1);
+}
+
+/* Keep the profile content above the vines */
+.retro-profile-titlebar {
+  position: relative;
+  z-index: 3;
+}
+
+.retro-profile-grid {
+  position: relative;
+  z-index: 2;
+}
+
+/* Subtle inner decorative border */
+.vine-panel::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(72, 101, 49, 0.22);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Smaller decorations on mobile */
+
+@media (max-width: 680px) {
+  .panel-vine {
+    width: 55px;
+    height: 260px;
+    bottom: auto;
+    object-fit: contain;
+    opacity: 0.5;
+  }
+}
+

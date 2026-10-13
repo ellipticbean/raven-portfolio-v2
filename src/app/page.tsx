@@ -78,11 +78,32 @@ export default function Home() {
       </header>
 
       <section id="top" className="page-container py-12 sm:py-16">
-        <div className="retro-profile-window overflow-hidden">
+
+        <div className="retro-profile-window vine-panel overflow-hidden">
           <div className="retro-profile-titlebar mono">
             <span>Raven / profile</span>
             <span aria-hidden="true">□ ─ ×</span>
           </div>
+
+          {/* Decorative hanging vines */}
+          <Image
+            src="/decor/vine.svg"
+            alt=""
+            aria-hidden="true"
+            width={120}
+            height={420}
+            className="panel-vine panel-vine-left"
+          />
+
+          <Image
+            src="/decor/vine.svg"
+            alt=""
+            aria-hidden="true"
+            width={120}
+            height={420}
+            className="panel-vine panel-vine-right"
+          />
+
           <div className="retro-profile-grid">
             <div className="retro-avatar-wrap">
               <Image
@@ -117,6 +138,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+
 
         <details className="retro-status-details">
           <summary className="mono">▸ live project status</summary>
