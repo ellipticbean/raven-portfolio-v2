@@ -62,9 +62,9 @@ export const projects: Project[] = [
             "Mobile-friendly map, atmosphere controls, and accessible keyboard navigation",
         ],
         problem:
-            "Listening-history tools often present favorite artists as rankings and charts. Those numbers are useful, but they rarely make the memories and personality behind a music library feel tangible.",
+            "I love looking through Last.fm stats, but most listening-history tools are just charts and lists. I wanted something with a little more personality, where exploring your music feels like doing something fun instead of reading another spreadsheet.",
         solution:
-            "I built an interactive, whimsical pixel-art town from public Last.fm data. Neighborhoods use a listener's artist rankings, while optional historical views, collectible records, social comparisons, and locally saved achievements turn statistics into a place to revisit.",
+            "So I built a little pixel-art town around your public Last.fm history. Your top artists become buildings, and you can explore neighborhoods, look back at earlier listening habits, compare music with friends, and collect imaginary records along the way.",
         metrics: [
             { label: "Artist buildings", value: "100" },
             { label: "Neighborhoods", value: "7" },
@@ -131,7 +131,7 @@ export const projects: Project[] = [
         tech: ["TypeScript", "Discord.js", "Last.fm API"],
         status: "In Development",
         summary:
-            "A new Discord bot inspired by the best parts of Last.fm community bots, built around simple slash commands and a maintainable architecture.",
+            "A Gowon-inspired Last.fm Discord bot in development, built to recreate familiar music-stat commands and community features with a maintainable foundation.",
         features: [
             "Last.fm account linking",
             "Now-playing and recent-track commands",
@@ -141,10 +141,10 @@ export const projects: Project[] = [
             "Future crowns, charts, and listening-history features",
         ],
         problem:
-            "Last.fm communities rely on Discord bots to turn individual scrobbles into shared music discovery, rankings, and lightweight social features. Existing bots can disappear or become difficult to maintain when their infrastructure grows too complex.",
+            "Gowon is a popular Last.fm Discord bot that's expected to shut down. I wanted to build something that could carry on the features people love, from now-playing commands and artist rankings to comparing music with friends, rather than see those tools disappear.",
 
         solution:
-            "Melo is being built as a smaller, maintainable Last.fm Discord bot using slash commands and the Last.fm API first, with persistent server-wide statistics added only where they provide real value.",
+            "Melo is my attempt at a Gowon-style replacement. I'm starting with Last.fm account linking, now-playing commands, and personal music stats, then building toward the shared server rankings and other community features people use most.",
 
         metrics: [
             {
