@@ -184,6 +184,7 @@ export default function Home() {
                     }
                     width={1200}
                     height={675}
+                    unoptimized
                     className={`w-full object-cover object-top transition duration-500 group-hover:scale-[1.02] ${project.slug === "scrobble-city" ? "h-60" : "h-40"}`}
                   />
                 </div>
