@@ -499,9 +499,9 @@ html[data-theme="light"] .retro-featured-card .retro-card-titlebar { color: #342
   width: 100%;
   height: auto;
   aspect-ratio: 1;
-  object-fit: cover;
-  border: 3px solid #151b10;
-  background: #7a985e;
+  object-fit: contain;
+  border: 0;
+  background: transparent;
 }
 .retro-avatar-caption {
   display: block;
