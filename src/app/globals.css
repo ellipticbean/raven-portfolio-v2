@@ -457,3 +457,150 @@ html[data-theme="light"] .retro-featured-card .retro-card-titlebar { color: #342
 @media (prefers-reduced-motion: reduce) {
   .retro-project-card:hover { transform: none; }
 }
+
+
+/* ============================================================
+   PROFILE WINDOW — borrowed from Raven's original portfolio
+   ============================================================ */
+.retro-profile-window {
+  border: 2px solid #151b10;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #f8f4df, #d5dfac);
+  box-shadow: 7px 7px 0 rgba(0, 0, 0, .36);
+  color: #182013;
+}
+.retro-profile-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  border-bottom: 2px solid #151b10;
+  background: linear-gradient(#eef6c4 0%, #cce08b 46%, #a1bb5d 52%, #729340 100%);
+  color: #1b2714;
+  font-size: 13px;
+  font-weight: 700;
+}
+.retro-profile-grid {
+  display: grid;
+  grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(22px, 3vw, 40px);
+  padding: clamp(20px, 3vw, 34px);
+}
+.retro-avatar-wrap {
+  width: 100%;
+  max-width: 240px;
+  justify-self: center;
+  text-align: center;
+}
+.retro-avatar {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 3px solid #151b10;
+  background: #7a985e;
+}
+.retro-avatar-caption {
+  display: block;
+  margin-top: 6px;
+  color: #607042;
+  font-size: 10px;
+}
+.retro-profile-eyebrow {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+}
+.retro-profile-copy h1 {
+  margin: 10px 0;
+  color: #131b11;
+  font-size: clamp(56px, 8vw, 92px);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -.065em;
+}
+.retro-profile-subtitle {
+  margin: 18px 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(15px, 2vw, 20px);
+  font-weight: 700;
+  color: #34451e;
+}
+.retro-profile-bio {
+  margin: 20px 0 0;
+  max-width: 680px;
+  color: #24321a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(15px, 1.7vw, 18px);
+  line-height: 1.65;
+}
+.retro-profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+.retro-profile-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 43px;
+  padding: 9px 17px;
+  border: 2px solid #151b10;
+  border-radius: 5px;
+  background: linear-gradient(#fffdf3, #ece7cc);
+  color: #1a2016;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, .12);
+  transition: transform .15s ease, filter .15s ease;
+}
+.retro-profile-button.primary {
+  background: linear-gradient(#ffcb88, #f88c27);
+  color: #17150f;
+}
+.retro-profile-button:hover {
+  filter: brightness(1.04);
+  transform: translateY(-2px);
+}
+.retro-status-details {
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 22px;
+}
+.retro-status-details > summary {
+  cursor: pointer;
+  display: block;
+  width: fit-content;
+  padding: 8px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 5px;
+  background: var(--surface-1);
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+.retro-status-details > summary:hover {
+  color: var(--accent-bright);
+  border-color: var(--accent);
+}
+.retro-status-details[open] {
+  width: min(100%, 520px);
+}
+.retro-status-details[open] > summary {
+  color: var(--accent-bright);
+}
+@media (max-width: 680px) {
+  .retro-profile-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+    padding: 20px;
+  }
+  .retro-avatar-wrap { width: min(240px, 100%); }
+  .retro-profile-copy h1 { font-size: clamp(54px, 14vw, 72px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .retro-profile-button { transition: none; }
+}
