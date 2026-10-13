@@ -152,6 +152,12 @@ export async function GET() {
         };
     }
     const statuses: ProjectStatus[] = [
+        {
+            slug: "scrobble-city",
+            status: "live",
+            label: "Live Beta",
+            checkedAt,
+        },
         commissionStatus,
         tf2Status,
         gameNightStatus,
