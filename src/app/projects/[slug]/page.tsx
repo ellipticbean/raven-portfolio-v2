@@ -190,7 +190,7 @@ export default async function ProjectPage({
                 <section className="page-container border-t border-[var(--border)] py-24">
                     <div className="grid gap-5 lg:grid-cols-2">
                         {project.problem && (
-                            <div className="glass-panel rounded-[var(--radius-lg)] p-6 sm:p-8">
+                            <div className="glass-panel retro-case-study-card retro-case-study-problem rounded-[var(--radius-lg)] p-6 sm:p-8">
                                 <p className="mono text-[10px] uppercase tracking-[0.18em] text-[var(--text-muted)]">
                                     The Problem
                                 </p>
@@ -206,7 +206,7 @@ export default async function ProjectPage({
                         )}
 
                         {project.solution && (
-                            <div className="glass-panel rounded-[var(--radius-lg)] p-6 sm:p-8">
+                            <div className="glass-panel retro-case-study-card retro-case-study-solution rounded-[var(--radius-lg)] p-6 sm:p-8">
                                 <p className="mono text-[10px] uppercase tracking-[0.18em] text-accent">
                                     The Solution
                                 </p>
