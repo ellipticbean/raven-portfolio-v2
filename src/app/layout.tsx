@@ -121,7 +121,7 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
-        <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b5335c579818484f8069d1f0b7b1f032"}'></script>
+        <script async type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b5335c579818484f8069d1f0b7b1f032"}'></script>
       </body>
     </html>
   );
