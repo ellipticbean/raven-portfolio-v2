@@ -1,28 +1,43 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 type Theme = "dark" | "light";
 
 const STORAGE_KEY = "raven-portfolio-theme";
+const CHANGE_EVENT = "raven-portfolio-theme-changed";
+
+// The layout's early inline script restores the saved theme before hydration.
+// Subscribe to that document state instead of setting React state in an effect.
+function readTheme(): Theme {
+  return document.documentElement.dataset.theme === "light" ? "light" : "dark";
+}
+
+function subscribeToTheme(onChange: () => void) {
+  function handleStorage(event: StorageEvent) {
+    if (event.key !== STORAGE_KEY && event.key !== null) return;
+    document.documentElement.dataset.theme =
+      event.newValue === "light" ? "light" : "dark";
+    onChange();
+  }
+
+  window.addEventListener(CHANGE_EVENT, onChange);
+  window.addEventListener("storage", handleStorage);
+  return () => {
+    window.removeEventListener(CHANGE_EVENT, onChange);
+    window.removeEventListener("storage", handleStorage);
+  };
+}
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>("dark");
-
-  useEffect(() => {
-    const savedTheme = window.localStorage.getItem(STORAGE_KEY);
-    const initialTheme: Theme = savedTheme === "light" ? "light" : "dark";
-
-    document.documentElement.dataset.theme = initialTheme;
-    setTheme(initialTheme);
-  }, []);
+  const theme = useSyncExternalStore(subscribeToTheme, readTheme, () => "dark");
 
   function toggleTheme() {
     const nextTheme: Theme = theme === "dark" ? "light" : "dark";
 
     document.documentElement.dataset.theme = nextTheme;
     window.localStorage.setItem(STORAGE_KEY, nextTheme);
-    setTheme(nextTheme);
+    window.dispatchEvent(new Event(CHANGE_EVENT));
   }
 
   const switchingToLight = theme === "dark";
