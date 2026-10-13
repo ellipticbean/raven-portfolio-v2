@@ -21,15 +21,15 @@ function StatusDot() {
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden">
-      <header className="page-container flex h-20 items-center justify-between">
+      <header className="page-container retro-site-header flex h-20 items-center justify-between">
         <a
           href="#top"
-          className="mono text-sm font-semibold tracking-[0.22em] text-white"
+          className="mono retro-brand text-sm font-semibold tracking-[0.22em] text-white"
         >
           RAVEN<span className="text-accent">.</span>
         </a>
 
-        <nav className="hidden items-center gap-8 text-sm text-[var(--text-secondary)] md:flex">
+        <nav className="portfolio-nav hidden items-center gap-8 text-sm text-[var(--text-secondary)] md:flex">
           <a
             href="#projects"
             className="transition-colors hover:text-white"
@@ -79,15 +79,15 @@ export default function Home() {
 
       <section
         id="top"
-        className="page-container relative grid min-h-[calc(100vh-5rem)] items-center gap-16 py-20 lg:grid-cols-[1.15fr_0.85fr]"
+        className="page-container relative grid min-h-[76vh] items-center gap-12 py-16 lg:grid-cols-[1.15fr_0.85fr]"
       >
-        <div className="relative z-10">
+        <div className="retro-hero-window relative z-10">
           <div className="mono mb-6 flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-[var(--text-secondary)]">
             <StatusDot />
             Currently building
           </div>
 
-          <h1 className="max-w-4xl text-5xl font-semibold leading-[0.98] tracking-[-0.055em] text-white sm:text-6xl lg:text-8xl">
+          <h1 className="max-w-4xl text-5xl font-semibold leading-[1.04] tracking-[-0.055em] text-white sm:text-6xl lg:text-7xl">
             I make bots, tools, and{" "}
             <span className="text-accent">small web projects.</span>
           </h1>
@@ -101,16 +101,16 @@ export default function Home() {
           <div className="mt-10 flex flex-wrap gap-4">
             <a
               href="#projects"
-              className="rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-white shadow-[0_0_35px_rgba(108,140,255,0.22)] transition hover:bg-accent-bright"
+              className="retro-primary-action rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-white transition hover:bg-accent-bright"
             >
               Explore Projects
             </a>
 
             <a
               href="#contact"
-              className="rounded-xl border border-[var(--border-strong)] bg-[var(--surface-1)] px-6 py-3 text-sm font-semibold text-[var(--text-secondary)] transition hover:border-accent hover:text-white"
+              className="retro-secondary-action rounded-xl border border-[var(--border-strong)] bg-[var(--surface-1)] px-6 py-3 text-sm font-semibold text-[var(--text-secondary)] transition hover:border-accent hover:text-white"
             >
-              Work With Me
+              CONTACT.EXE
             </a>
           </div>
 
@@ -139,6 +139,12 @@ export default function Home() {
         />
       </section>
 
+      <div className="page-container retro-ticker mono" aria-label="Portfolio highlights">
+        <span>✦ WELCOME TO MY LITTLE CORNER OF THE INTERNET</span>
+        <span>BUILDING SMALL, SPECIFIC THINGS SINCE 2020</span>
+        <span>✦ NEW: SCROBBLE CITY IS LIVE</span>
+      </div>
+
       <section
         id="projects"
         className="page-container border-t border-[var(--border)] py-28"
@@ -146,7 +152,7 @@ export default function Home() {
         <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
             <p className="mono text-xs uppercase tracking-[0.2em] text-accent">
-              Selected Work
+              C:\\Users\\Raven\\Projects
             </p>
 
             <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-white sm:text-5xl">
@@ -160,13 +166,17 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-3">
+        <div className="grid gap-5 lg:grid-cols-2">
           {projects.map((project, index) => (
             <Link
               key={project.name}
               href={`/projects/${project.slug}`}
-              className="group glass-panel flex min-h-[360px] flex-col rounded-[var(--radius-lg)] p-6 transition duration-300 hover:-translate-y-1 hover:border-[var(--border-strong)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.28)]"
+              className={`group glass-panel retro-project-card flex min-h-[360px] flex-col rounded-[var(--radius-lg)] p-6 transition duration-300 hover:-translate-y-1 ${project.slug === "scrobble-city" ? "retro-featured-card lg:col-span-2" : ""}`}
             >
+              <div className="retro-card-titlebar mono" aria-hidden="true">
+                <span>{project.slug === "scrobble-city" ? "★ FEATURED // SCROBBLE_CITY.EXE" : `PROJECT_${String(index + 1).padStart(2, "0")}.EXE`}</span>
+                <span>□ ─ ×</span>
+              </div>
               <div className="flex items-center justify-between">
                 <span className="mono text-[11px] uppercase tracking-[0.16em] text-[var(--text-muted)]">
                   0{index + 1}
@@ -193,7 +203,7 @@ export default function Home() {
                     }
                     width={1200}
                     height={675}
-                    className="h-40 w-full object-cover object-top transition duration-500 group-hover:scale-[1.02]"
+                    className={`w-full object-cover object-top transition duration-500 group-hover:scale-[1.02] ${project.slug === "scrobble-city" ? "h-60" : "h-40"}`}
                   />
                 </div>
               )}
@@ -244,7 +254,7 @@ export default function Home() {
                 <div className="mt-auto pt-7">
                   <div className="flex items-center justify-between border-t border-[var(--border)] pt-5">
                     <span className="mono text-[10px] uppercase tracking-[0.14em] text-[var(--text-muted)]">
-                      View case study
+                      {project.slug === "scrobble-city" ? "Explore the city & case study" : "View case study"}
                     </span>
 
                     <span className="text-accent transition-transform duration-300 group-hover:translate-x-1">
@@ -267,7 +277,7 @@ export default function Home() {
         <div className="grid gap-12 lg:grid-cols-2">
           <div>
             <p className="mono text-xs uppercase tracking-[0.2em] text-accent">
-              About
+              C:\\Users\\Raven\\About
             </p>
 
             <h2 className="mt-4 max-w-xl text-3xl font-semibold tracking-[-0.04em] text-white sm:text-5xl">
@@ -331,7 +341,7 @@ export default function Home() {
 
       <footer className="page-container flex flex-col gap-4 border-t border-[var(--border)] py-8 text-xs text-[var(--text-muted)] sm:flex-row sm:items-center sm:justify-between">
         <p>Built by Raven.</p>
-        <p className="mono">RAVEN // PORTFOLIO V2</p>
+        <p className="mono">RAVEN.EXE // HANDMADE ON THE INTERNET ✦</p>
       </footer>
     </main>
   );
