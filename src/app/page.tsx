@@ -77,73 +77,54 @@ export default function Home() {
         </div>
       </header>
 
-      <section
-        id="top"
-        className="page-container relative grid min-h-[76vh] items-center gap-12 py-16 lg:grid-cols-[1.15fr_0.85fr]"
-      >
-        <div className="retro-hero-window relative z-10">
-          <div className="mono mb-6 flex items-center gap-3 text-xs uppercase tracking-[0.22em] text-[var(--text-secondary)]">
-            <StatusDot />
-            Currently building
+      <section id="top" className="page-container py-12 sm:py-16">
+        <div className="retro-profile-window overflow-hidden">
+          <div className="retro-profile-titlebar mono">
+            <span>Raven / profile</span>
+            <span aria-hidden="true">□ ─ ×</span>
           </div>
+          <div className="retro-profile-grid">
+            <div className="retro-avatar-wrap">
+              <Image
+                src="/avatar.jpg"
+                alt="Illustrated avatar of Raven wearing glasses"
+                width={320}
+                height={320}
+                priority
+                className="retro-avatar"
+              />
+              <span className="mono retro-avatar-caption">avatar.png</span>
+            </div>
 
-          <h1 className="max-w-4xl text-5xl font-semibold leading-[1.04] tracking-[-0.055em] text-white sm:text-6xl lg:text-7xl">
-            I make bots, tools, and{" "}
-            <span className="text-accent">small web projects.</span>
-          </h1>
-
-          <p className="mt-8 max-w-2xl text-base leading-8 text-[var(--text-secondary)] sm:text-lg">
-            I&apos;m Raven, a developer building Discord bots, web tools,
-            automations, and software experiments that turn annoying problems
-            into useful products.
-          </p>
-
-          <div className="mt-10 flex flex-wrap gap-4">
-            <a
-              href="#projects"
-              className="retro-primary-action rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-white transition hover:bg-accent-bright"
-            >
-              Explore Projects
-            </a>
-
-            <a
-              href="#contact"
-              className="retro-secondary-action rounded-xl border border-[var(--border-strong)] bg-[var(--surface-1)] px-6 py-3 text-sm font-semibold text-[var(--text-secondary)] transition hover:border-accent hover:text-white"
-            >
-              CONTACT.EXE
-            </a>
-          </div>
-
-          <div className="mono mt-10 text-xs text-[var(--text-muted)]">
-            Press{" "}
-            <kbd className="rounded border border-[var(--border)] bg-[var(--surface-2)] px-2 py-1 text-[var(--text-secondary)]">
-              Ctrl
-            </kbd>{" "}
-            +{" "}
-            <kbd className="rounded border border-[var(--border)] bg-[var(--surface-2)] px-2 py-1 text-[var(--text-secondary)]">
-              K
-            </kbd>{" "}
-            to explore
+            <div className="retro-profile-copy">
+              <p className="mono retro-profile-eyebrow">HELLO, I&apos;M</p>
+              <h1>Raven</h1>
+              <p className="retro-profile-subtitle">
+                coder • crocheter • uhhhh
+              </p>
+              <p className="retro-profile-bio">
+                I build bots, web tools, and small projects for oddly specific
+                problems... now that my degree is obsolete :)
+              </p>
+              <div className="retro-profile-actions">
+                <a className="retro-profile-button primary" href="#projects">
+                  open projects
+                </a>
+                <a className="retro-profile-button" href="#contact">
+                  get in touch
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="relative">
-          <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-accent opacity-10 blur-[100px]" />
-
-          <LiveProjectStatus />
-        </div>
-
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute left-1/2 top-1/3 -z-10 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-accent opacity-[0.035] blur-[130px]"
-        />
+        <details className="retro-status-details">
+          <summary className="mono">▸ live project status</summary>
+          <div className="mt-4 max-w-xl">
+            <LiveProjectStatus />
+          </div>
+        </details>
       </section>
-
-      <div className="page-container retro-ticker mono" aria-label="Portfolio highlights">
-        <span>✦ WELCOME TO MY LITTLE CORNER OF THE INTERNET</span>
-        <span>BUILDING SMALL, SPECIFIC THINGS SINCE 2020</span>
-        <span>✦ NEW: SCROBBLE CITY IS LIVE</span>
-      </div>
 
       <section
         id="projects"
@@ -281,21 +262,21 @@ export default function Home() {
             </p>
 
             <h2 className="mt-4 max-w-xl text-3xl font-semibold tracking-[-0.04em] text-white sm:text-5xl">
-              More builder than buzzwords.
+              A little about me.
             </h2>
           </div>
 
           <div className="space-y-6 text-base leading-8 text-[var(--text-secondary)]">
             <p>
-              I like building software that has a clear reason to exist,
-              especially tools that make communities, hobbies, or everyday
-              workflows easier.
+              I spent six years in college studying computer science and
+              ended up building novelty bots, small websites, and tools for
+              the hobbies I spend most of my time on.
             </p>
 
             <p>
-              My projects span Discord bots, web development, databases,
-              automation, APIs, and small experiments created simply because I
-              wanted to know if I could make them work.
+              Outside of coding, I like crocheting, gaming, and collecting
+              old books and magazines. I&apos;m usually bouncing between a few
+              projects at once, and this portfolio is where I keep them all.
             </p>
           </div>
         </div>
@@ -310,17 +291,17 @@ export default function Home() {
 
           <div className="relative max-w-2xl">
             <p className="mono text-xs uppercase tracking-[0.2em] text-accent">
-              Work With Me
+              Contact
             </p>
 
             <h2 className="mt-5 text-3xl font-semibold tracking-[-0.04em] text-white sm:text-5xl">
-              Have something oddly specific that needs building?
+              Have a project in mind?
             </h2>
 
             <p className="mt-6 text-base leading-8 text-[var(--text-secondary)]">
-              I&apos;m interested in custom Discord bots, small web tools,
-              automations, websites, integrations, and unusual programming
-              ideas.
+              I&apos;m open to building custom Discord bots, websites, web tools,
+              and automations. Tell me a little about what you&apos;re looking for
+              and we can talk through the details.
             </p>
 
             <div className="mt-10">
