@@ -42,7 +42,7 @@ export default function ActivityTimeline() {
         <div className="absolute bottom-0 left-[7px] top-0 w-px bg-[var(--border)] sm:left-[132px]" />
 
         <div className="space-y-3">
-          {activity.map((item, index) => {
+          {activity.map((item) => {
             const content = (
               <div className="glass-panel group rounded-[var(--radius-lg)] p-5 transition duration-300 hover:border-[var(--border-strong)]">
                 <div className="flex flex-wrap items-center gap-3">
