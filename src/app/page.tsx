@@ -86,8 +86,8 @@ export default function Home() {
           <div className="retro-profile-grid">
             <div className="retro-avatar-wrap">
               <Image
-                src="/avatar.jpg"
-                alt="Illustrated avatar of Raven wearing glasses"
+                src="/avatar.png"
+                alt="Illustrated avatar of Raven with brown hair, glasses, and a dark outfit"
                 width={320}
                 height={320}
                 priority
