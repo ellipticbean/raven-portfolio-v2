@@ -41,6 +41,88 @@ export type Project = {
 
 export const projects: Project[] = [
     {
+        slug: "scrobble-city",
+        name: "Scrobble City",
+        type: "Interactive Web App",
+        description:
+            "A cozy, explorable pixel-art city generated from a listener's public Last.fm history. The top 100 artists become buildings across seven themed neighborhoods, with musical stories, time travel, collectible records, and playful comparisons.",
+        tech: ["React", "TypeScript", "Vite", "Last.fm API", "GitHub Pages"],
+        status: "Live Beta",
+        summary:
+            "Every artist is a building, and every scrobble tells a story. Scrobble City turns listening statistics into a tiny musical world worth exploring.",
+        features: [
+            "Seven themed neighborhoods populated by your top 100 artists",
+            "Clickable artist buildings, wandering citizens, and rotating town events",
+            "Music Time Machine for exploring earlier months and years",
+            "Census Office comparisons of listening trends across years",
+            "Music Taste Matchmaking Agency for comparing Last.fm users",
+            "Department of Musical Affairs with tongue-in-cheek listening judgments",
+            "The Needle & Nook record shop with fictional collectible artist records",
+            "Visitor Passport, 14 achievements, and exportable local progress",
+            "Mobile-friendly map, atmosphere controls, and accessible keyboard navigation",
+        ],
+        problem:
+            "Listening-history tools often present favorite artists as rankings and charts. Those numbers are useful, but they rarely make the memories and personality behind a music library feel tangible.",
+        solution:
+            "I built an interactive, whimsical pixel-art town from public Last.fm data. Neighborhoods use a listener's artist rankings, while optional historical views, collectible records, social comparisons, and locally saved achievements turn statistics into a place to revisit.",
+        metrics: [
+            { label: "Artist buildings", value: "100" },
+            { label: "Neighborhoods", value: "7" },
+            { label: "Achievements", value: "14" },
+            { label: "Release", value: "v0.9.2 beta" },
+        ],
+        media: [
+            {
+                src: "/projects/scrobble-city/city-preview.png",
+                alt: "Scrobble City's pixel-art map featuring pastel artist buildings, grassy paths, and whimsical musical landmarks",
+                caption: "The central neighborhood, where artist rankings become buildings and music statistics become a world.",
+            },
+        ],
+        technicalHighlights: [
+            {
+                title: "Public Last.fm integration",
+                description:
+                    "Fetches public top-artist charts and historical listening information using the Last.fm API. Artist data is cached locally to avoid unnecessary repeat requests while exploring.",
+            },
+            {
+                title: "Deterministic world generation",
+                description:
+                    "Transforms ranked artist data into a consistent 100-building city organized into seven themed districts with varied architecture and story elements.",
+            },
+            {
+                title: "Local-first collectibles",
+                description:
+                    "Persists passport stamps, achievements, and fictional records in the browser, with an option to export and restore progress without creating a Scrobble City account.",
+            },
+            {
+                title: "Tested public release",
+                description:
+                    "Built with React, TypeScript, and Vite, with automated data-storage tests, lint checks, responsive UI testing, and manual GitHub Pages deployment.",
+            },
+        ],
+        challenges: [
+            {
+                title: "Turning data into a coherent place",
+                description:
+                    "Artist ranks needed to feel meaningful without making every building look identical or overwhelming the user with an enormous map.",
+            },
+            {
+                title: "Keeping Last.fm requests reasonable",
+                description:
+                    "Exploring neighborhoods and revisiting time periods should reuse cached data where appropriate instead of requesting the same charts repeatedly.",
+            },
+        ],
+        lessons: [
+            "Whimsical UI can communicate real data when there is a consistent visual system behind it.",
+            "Small interactions and collectibles give users reasons to return without requiring a backend account.",
+            "A responsive, keyboard-friendly experience needs to be considered even for a visual map.",
+        ],
+        links: [
+            { label: "Visit Scrobble City", href: "https://ellipticbean.github.io/scrobble-city/" },
+            { label: "View Source", href: "https://github.com/ellipticbean/scrobble-city" },
+        ],
+    },
+    {
         slug: "melo",
         name: "Melo",
         type: "Discord Bot",
