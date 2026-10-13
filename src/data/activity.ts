@@ -10,6 +10,16 @@ export type ActivityItem = {
 
 export const activity: ActivityItem[] = [
   {
+    date: "2026-10-12",
+    type: "release",
+    title: "Scrobble City public beta launched",
+    description:
+      "Released a cozy pixel-art world built from public Last.fm listening history, with seven neighborhoods, the Music Time Machine, fictional records, and collectible achievements.",
+    project: "Scrobble City",
+    version: "v0.9.2 beta",
+    href: "/projects/scrobble-city",
+  },
+  {
     date: "2026-09-30",
     type: "project",
     title: "Started building Raven Portfolio v2",
