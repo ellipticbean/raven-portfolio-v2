@@ -12,12 +12,16 @@ export default function ProjectGallery({
   items,
 }: ProjectGalleryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [imageSizes, setImageSizes] = useState<
+    Record<string, { width: number; height: number }>
+  >({});
 
   if (items.length === 0) {
     return null;
   }
 
   const activeItem = items[activeIndex];
+  const activeImageSize = imageSizes[activeItem.src];
 
   return (
     <section className="page-container border-t border-[var(--border)] py-24">
@@ -33,24 +37,56 @@ export default function ProjectGallery({
 
       <div className="grid gap-5 lg:grid-cols-[1fr_300px]">
         <div className="glass-panel overflow-hidden rounded-[var(--radius-lg)]">
-          <div className="relative aspect-[16/9] bg-[var(--surface-1)]">
-            <Image
-              src={activeItem.src}
-              alt={activeItem.alt}
-              fill
-              className="object-contain"
-              sizes="(max-width: 1024px) 100vw, 900px"
-              priority
-            />
+          <div className="flex min-h-[290px] items-center justify-center bg-[var(--surface-1)] p-4 sm:p-8">
+            <div
+              className="relative w-full"
+              style={{
+                maxWidth: activeImageSize ? `${activeImageSize.width}px` : "900px",
+                aspectRatio: activeImageSize
+                  ? `${activeImageSize.width} / ${activeImageSize.height}`
+                  : "16 / 9",
+                maxHeight: "min(70vh, 650px)",
+              }}
+            >
+              <Image
+                src={activeItem.src}
+                alt={activeItem.alt}
+                fill
+                unoptimized
+                className="object-contain"
+                sizes="(max-width: 1024px) 100vw, 900px"
+                priority
+                onLoad={(event) => {
+                  const width = event.currentTarget.naturalWidth;
+                  const height = event.currentTarget.naturalHeight;
+                  setImageSizes((current) => {
+                    const previous = current[activeItem.src];
+                    if (previous?.width === width && previous.height === height) {
+                      return current;
+                    }
+                    return {
+                      ...current,
+                      [activeItem.src]: { width, height },
+                    };
+                  });
+                }}
+              />
+            </div>
           </div>
 
-          {activeItem.caption && (
-            <div className="border-t border-[var(--border)] px-5 py-4">
-              <p className="text-sm leading-6 text-[var(--text-secondary)]">
-                {activeItem.caption}
-              </p>
-            </div>
-          )}
+          <div className="flex flex-wrap items-center justify-between gap-3 border-t border-[var(--border)] px-5 py-4">
+            <p className="text-sm leading-6 text-[var(--text-secondary)]">
+              {activeItem.caption ?? activeItem.alt}
+            </p>
+            <a
+              href={activeItem.src}
+              target="_blank"
+              rel="noreferrer"
+              className="mono shrink-0 text-xs text-accent hover:underline"
+            >
+              View original image ↗
+            </a>
+          </div>
         </div>
 
         <div className="grid gap-3">
