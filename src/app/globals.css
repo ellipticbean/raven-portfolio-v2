@@ -604,3 +604,33 @@ html[data-theme="light"] .retro-featured-card .retro-card-titlebar { color: #342
 @media (prefers-reduced-motion: reduce) {
   .retro-profile-button { transition: none; }
 }
+
+
+/* Project pages use small desktop-window headers instead of plain cards. */
+.retro-case-study-card {
+  position: relative;
+  overflow: hidden;
+  padding-top: 68px;
+  border-color: var(--border-strong);
+}
+.retro-case-study-card::before {
+  content: "problem.txt  ▫  ─  ×";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: block;
+  padding: 12px 19px;
+  border-bottom: 1px solid var(--border-strong);
+  background: var(--surface-2);
+  color: var(--text-secondary);
+  font: 700 11px/1.35 var(--font-geist-mono), monospace;
+  letter-spacing: .08em;
+}
+.retro-case-study-solution::before {
+  content: "solution.txt  ▫  ─  ×";
+}
+html[data-theme="light"] .retro-case-study-card::before {
+  background: linear-gradient(180deg, #eaf0d1, #d3dda8);
+  color: #304223;
+}
