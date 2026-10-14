@@ -642,6 +642,7 @@ html:not([data-theme="light"]) body {
   background-color: #08110c;
 
   background-image:
+    radial-gradient(circle at 50% -20%, var(--page-glow), transparent 38rem),
     linear-gradient(
       rgba(5, 12, 8, 0.65),
       rgba(5, 12, 8, 0.65)
