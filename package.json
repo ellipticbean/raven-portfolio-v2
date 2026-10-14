@@ -14,28 +14,38 @@
     "deploy:response-store": "cf deploy --prebuilt --mode production --worker raven-portfolio-v2-response-store"
   },
   "dependencies": {
-    "@cloudflare/workers-response-store": "^1.0.0",
-    "@vinext/cloudflare": "^1.0.0",
+    "@cloudflare/workers-response-store": "^1.1.0",
+    "@vinext/cloudflare": "^1.1.0",
     "next": "16.3.8",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "react-server-dom-webpack": "19.2.8",
-    "vinext": "^1.0.0"
+    "vinext": "^1.1.0"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^2.0.0-beta.sha-ad79608dd",
+    "@cloudflare/vite-plugin": "^2.0.0-beta.sha-91c870c02",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^6.1.1",
     "@vitejs/plugin-rsc": "^0.5.35",
-    "cf": "^1.0.0-beta.8",
+    "cf": "^1.0.0-beta.16",
     "eslint": "^9",
     "eslint-config-next": "16.3.8",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vite": "^8.3.0"
   },
-  "type": "module"
+  "type": "module",
+  "overrides": {
+    "miniflare": {
+      "undici": "7.29.1"
+    },
+    "fflate": "0.7.5"
+  },
+  "allowScripts": {
+    "workerd@1.20261006.1": true,
+    "unrs-resolver@1.12.2": true
+  }
 }

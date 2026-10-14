@@ -35,10 +35,12 @@ export default function CommandPaletteLauncher() {
         Ctrl K
       </button>
 
-      <CommandPalette
-        open={open}
-        onClose={() => setOpen(false)}
-      />
+      {open && (
+        <CommandPalette
+          open={open}
+          onClose={() => setOpen(false)}
+        />
+      )}
     </>
   );
 }

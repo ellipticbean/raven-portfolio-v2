@@ -46,7 +46,7 @@
   --page-width: 1280px;
 
   /* Theme-aware effects */
-  --page-glow: rgba(108, 140, 255, 0.13);
+  --page-glow: rgba(165, 216, 142, 0.10);
   --glass-background: rgba(18, 23, 34, 0.72);
   --glass-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.025);
@@ -84,7 +84,7 @@ html[data-theme="light"] {
   --warning: #a87318;
   --danger: #c95050;
 
-  --page-glow: rgba(73, 104, 223, 0.11);
+  --page-glow: rgba(140, 68, 15, 0.08);
   --glass-background: rgba(255, 255, 255, 0.78);
   --glass-shadow: 0 20px 60px rgba(45, 55, 80, 0.12);
   --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.9);
@@ -288,3 +288,445 @@ html[data-theme="light"] .hover\:text-white:hover {
     width: min(calc(100% - 28px), var(--page-width));
   }
 }
+
+/* ================================================
+   RAVEN V2.1 — A little retro, still functional
+   Keeps the contemporary layout, introduces the
+   personal desktop-window details of Portfolio v1.
+   ================================================ */
+
+:root {
+  --accent: #f2a054;
+  --accent-bright: #ffc485;
+  --accent-deep: #bf712e;
+  --accent-soft: rgba(242, 160, 84, .14);
+  --accent-glow: rgba(242, 160, 84, .16);
+  --background: #171c1c;
+  --surface-1: #202824;
+  --surface-2: #27332b;
+  --surface-3: #344236;
+  --surface-hover: #354439;
+  --text-secondary: #c0c9bd;
+  --text-muted: #98aa9a;
+  --border: #52644e;
+  --border-strong: #94a77f;
+  --success: #a5d88e;
+  --glass-background: rgba(32, 40, 36, .95);
+  --glass-shadow: 6px 6px 0 rgba(0, 0, 0, .27);
+  --glass-inset: inset 0 1px 0 rgba(255, 255, 255, .035);
+  --radius-sm: 5px;
+  --radius-md: 9px;
+  --radius-lg: 12px;
+  --radius-xl: 15px;
+  --page-width: 1180px;
+}
+html[data-theme="light"] {
+  --accent: #8c440f;
+  --accent-bright: #8c440f;
+  --accent-deep: #c76f30;
+  --accent-soft: rgba(171, 89, 29, .10);
+  --accent-glow: rgba(171, 89, 29, .15);
+  --background: #e3e5d4;
+  --surface-1: #faf8e9;
+  --surface-2: #f1e9cc;
+  --surface-3: #e4dfbd;
+  --surface-hover: #e6e7ca;
+  --text-secondary: #42503f;
+  --text-muted: #53624d;
+  --border: #a2af8e;
+  --border-strong: #667f55;
+  --success: #357b43;
+  --glass-background: rgba(250, 248, 233, .96);
+  --glass-shadow: 5px 5px 0 rgba(47, 58, 39, .16);
+  --glass-inset: inset 0 1px 0 #fff;
+}
+body {
+  background: radial-gradient(ellipse at 20% 5%, var(--page-glow), transparent 42rem), var(--background);
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: .18;
+  background-image: linear-gradient(rgba(193, 207, 171, .075) 1px, transparent 1px), linear-gradient(90deg, rgba(193, 207, 171, .075) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+body > * { position: relative; }
+.glass-panel {
+  border: 1px solid var(--border-strong);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.retro-site-header {
+  margin-top: 14px;
+  height: auto;
+  min-height: 70px;
+  padding: 12px 20px;
+  border: 1px solid var(--border-strong);
+  border-bottom: 4px solid var(--accent);
+  border-radius: 9px;
+  background: var(--surface-1);
+  box-shadow: 5px 5px 0 rgba(0,0,0,.19);
+}
+.retro-brand::before { content: "▣"; color: var(--accent); margin-right: .7rem; }
+.portfolio-nav { gap: 1.1rem; }
+.portfolio-nav a {
+  padding: 7px 9px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 12px;
+}
+.portfolio-nav a:hover, .portfolio-nav a:focus-visible {
+  color: var(--accent-bright);
+  background: var(--surface-2);
+  border-color: var(--border-strong);
+}
+.retro-hero-window {
+  padding: clamp(24px, 4vw, 48px);
+  border: 1px solid var(--border-strong);
+  border-top: 7px solid var(--accent);
+  background: var(--glass-background);
+  border-radius: 10px;
+  box-shadow: var(--glass-shadow);
+}
+.retro-hero-window::before {
+  content: "⌂  ABOUT_THIS_BUILDER.TXT";
+  display: block;
+  margin-bottom: 25px;
+  color: var(--accent-bright);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 11px;
+  letter-spacing: .15em;
+}
+.retro-primary-action, .retro-secondary-action {
+  border-radius: 5px;
+  border: 1px solid var(--border-strong);
+  box-shadow: 3px 3px 0 rgba(0,0,0,.22);
+}
+.retro-ticker {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 28px;
+  padding: 13px 18px;
+  border: 1px dashed var(--border-strong);
+  border-radius: 5px;
+  color: var(--accent-bright);
+  background: var(--surface-1);
+  font-size: 10px;
+  letter-spacing: .1em;
+}
+.retro-project-card { position: relative; overflow: hidden; box-shadow: var(--glass-shadow); }
+.retro-project-card:hover { border-color: var(--accent); box-shadow: 7px 7px 0 rgba(0,0,0,.24); }
+.retro-card-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: -24px -24px 23px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-strong);
+  color: var(--accent-bright);
+  background: var(--surface-2);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+.retro-featured-card {
+  border-color: #b8a975;
+  background: linear-gradient(140deg, rgba(87, 100, 64, .24), var(--glass-background) 50%);
+}
+.retro-featured-card .retro-card-titlebar {
+  color: #231e17;
+  background: #e9bd79;
+}
+html[data-theme="light"] .retro-featured-card .retro-card-titlebar { color: #342412; }
+.retro-featured-card img { image-rendering: auto; }
+.retro-project-card .rounded-xl { border-radius: 6px; }
+:focus-visible { outline-offset: 3px; }
+@media (max-width: 800px) {
+  .retro-site-header { margin-top: 8px; }
+  .retro-hero-window { padding: 24px; }
+  .retro-ticker { font-size: 9px; }
+  .retro-card-titlebar { letter-spacing: .04em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .retro-project-card:hover { transform: none; }
+}
+
+
+/* ============================================================
+   PROFILE WINDOW — borrowed from Raven's original portfolio
+   ============================================================ */
+.retro-profile-window {
+  border: 2px solid #151b10;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #f8f4df, #d5dfac);
+  box-shadow: 7px 7px 0 rgba(0, 0, 0, .36);
+  color: #182013;
+}
+.retro-profile-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  border-bottom: 2px solid #151b10;
+  background: linear-gradient(#eef6c4 0%, #cce08b 46%, #a1bb5d 52%, #729340 100%);
+  color: #1b2714;
+  font-size: 13px;
+  font-weight: 700;
+}
+.retro-profile-grid {
+  display: grid;
+  grid-template-columns: minmax(180px, 240px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(22px, 3vw, 40px);
+  padding: clamp(20px, 3vw, 34px);
+}
+.retro-avatar-wrap {
+  width: 100%;
+  max-width: 240px;
+  justify-self: center;
+  text-align: center;
+}
+.retro-avatar {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border: 0;
+  background: transparent;
+}
+.retro-avatar-caption {
+  display: block;
+  margin-top: 6px;
+  color: #607042;
+  font-size: 10px;
+}
+.retro-profile-eyebrow {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+}
+.retro-profile-copy h1 {
+  margin: 10px 0;
+  color: #131b11;
+  font-size: clamp(56px, 8vw, 92px);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -.065em;
+}
+.retro-profile-subtitle {
+  margin: 18px 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(15px, 2vw, 20px);
+  font-weight: 700;
+  color: #34451e;
+}
+.retro-profile-bio {
+  margin: 20px 0 0;
+  max-width: 680px;
+  color: #24321a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(15px, 1.7vw, 18px);
+  line-height: 1.65;
+}
+.retro-profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+.retro-profile-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 43px;
+  padding: 9px 17px;
+  border: 2px solid #151b10;
+  border-radius: 5px;
+  background: linear-gradient(#fffdf3, #ece7cc);
+  color: #1a2016;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, .12);
+  transition: transform .15s ease, filter .15s ease;
+}
+.retro-profile-button.primary {
+  background: linear-gradient(#ffcb88, #f88c27);
+  color: #17150f;
+}
+.retro-profile-button:hover {
+  filter: brightness(1.04);
+  transform: translateY(-2px);
+}
+.retro-status-details {
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 22px;
+}
+.retro-status-details > summary {
+  cursor: pointer;
+  display: block;
+  width: fit-content;
+  padding: 8px 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 5px;
+  background: var(--surface-1);
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+.retro-status-details > summary:hover {
+  color: var(--accent-bright);
+  border-color: var(--accent);
+}
+.retro-status-details[open] {
+  width: min(100%, 520px);
+}
+.retro-status-details[open] > summary {
+  color: var(--accent-bright);
+}
+@media (max-width: 680px) {
+  .retro-profile-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+    padding: 20px;
+  }
+  .retro-avatar-wrap { width: min(240px, 100%); }
+  .retro-profile-copy h1 { font-size: clamp(54px, 14vw, 72px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .retro-profile-button { transition: none; }
+}
+
+
+/* Project pages use small desktop-window headers instead of plain cards. */
+.retro-case-study-card {
+  position: relative;
+  overflow: hidden;
+  padding-top: 68px;
+  border-color: var(--border-strong);
+}
+.retro-case-study-card::before {
+  content: "problem.txt  ▫  ─  ×";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: block;
+  padding: 12px 19px;
+  border-bottom: 1px solid var(--border-strong);
+  background: var(--surface-2);
+  color: var(--text-secondary);
+  font: 700 11px/1.35 var(--font-geist-mono), monospace;
+  letter-spacing: .08em;
+}
+.retro-case-study-solution::before {
+  content: "solution.txt  ▫  ─  ×";
+}
+html[data-theme="light"] .retro-case-study-card::before {
+  background: linear-gradient(180deg, #eaf0d1, #d3dda8);
+  color: #304223;
+}
+/* ====================================
+   ANIMATED FOREST BACKGROUND
+   ==================================== */
+
+html:not([data-theme="light"]) body {
+  background-color: #08110c;
+
+  background-image:
+    radial-gradient(circle at 50% -20%, var(--page-glow), transparent 38rem),
+    linear-gradient(
+      rgba(5, 12, 8, 0.65),
+      rgba(5, 12, 8, 0.65)
+    ),
+    url("/forest-bg.gif");
+
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Keep a plain background for reduced-motion users */
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-theme="light"]) body {
+    background-image: none;
+  }
+}
+
+/* ====================================
+   DECORATIVE PROFILE VINES
+   ==================================== */
+
+.vine-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+.panel-vine {
+  position: absolute;
+  top: 41px;
+  bottom: 8px;
+  width: 85px;
+  height: calc(100% - 49px);
+  object-fit: fill;
+  pointer-events: none;
+  opacity: 0.9;
+  z-index: 1;
+  filter: drop-shadow(2px 2px 1px rgba(20, 35, 20, 0.2));
+}
+
+
+
+.panel-vine-left {
+  left: 4px;
+}
+
+.panel-vine-right {
+  right: 4px;
+  transform: scaleX(-1);
+}
+
+/* Keep the profile content above the vines */
+.retro-profile-titlebar {
+  position: relative;
+  z-index: 3;
+}
+
+.retro-profile-grid {
+  position: relative;
+  z-index: 2;
+}
+
+/* Subtle inner decorative border */
+.vine-panel::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(72, 101, 49, 0.22);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Smaller decorations on mobile */
+
+@media (max-width: 680px) {
+  .panel-vine {
+    width: 55px;
+    height: 260px;
+    bottom: auto;
+    object-fit: contain;
+    opacity: 0.5;
+  }
+}
+
