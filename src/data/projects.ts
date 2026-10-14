@@ -122,6 +122,95 @@ export const projects: Project[] = [
             { label: "View Source", href: "https://github.com/ellipticbean/scrobble-city" },
         ],
     },
+
+    {
+        slug: "scrobble-garden",
+        name: "Scrobble Garden",
+        type: "Interactive Web App",
+        description:
+            "A bioluminescent music garden that turns public Last.fm listening history into living plants. Explore artist growth, recent scrobbles, and listening patterns through an interactive forest.",
+
+        tech: [
+            "React",
+            "TypeScript",
+            "Vite",
+            "Python",
+            "FastAPI",
+            "SQLite",
+            "Last.fm API",
+            "GitHub Pages",
+        ],
+
+        status: "Live",
+        summary:
+            "What if your listening history could grow into a living forest? Scrobble Garden transforms public Last.fm artist data into glowing plants, each with its own species, growth stage, and listening story.",
+        features: [
+            "Generate a garden from a public Last.fm username",
+            "Explore listening history across four time periods",
+            "Inspect artist plants, play counts, growth stages, and botanical descriptions",
+            "Review recent scrobbles and generated listening insights",
+            "Compare garden changes against saved browser-local history",
+            "Switch to a demo garden to explore without entering a username",
+        ],
+        problem:
+            "Most music-stat tools present listening history as charts and lists. I wanted to explore a more visual, cozy way to see how favorite artists grow over time.",
+        solution:
+            "Scrobble Garden maps public Last.fm artist data to a bioluminescent forest. Artists become plants with species and growth stages, while listening periods and recent tracks help the garden feel alive.",
+        metrics: [
+            { label: "Listening periods", value: "4" },
+            { label: "Data source", value: "Last.fm" },
+            { label: "Plant types", value: "5" },
+            { label: "Platform", value: "Web" },
+        ],
+        media: [
+            {
+                src: "/projects/scrobble-garden/scrobble-garden-preview.png",
+                alt: "Scrobble Garden interface with glowing plants and listening statistics",
+                caption:
+                    "The living garden transforms listening history into a bioluminescent forest.",
+            },
+        ],
+        technicalHighlights: [
+
+            {
+                title: "Python Automation & SQLite Sync",
+                description:
+                    "Connects the React interface to a local FastAPI service for Python-based processing, XP calculations, and SQLite sync-history reporting. The backend currently runs separately from the GitHub Pages frontend.",
+            },
+
+            {
+                title: "Last.fm API integration",
+                description:
+                    "Retrieves public artist charts, weekly artist rankings, and recent tracks for the selected listening period.",
+            },
+            {
+                title: "Garden generation",
+                description:
+                    "Transforms artist listening data into plants with species, growth stages, levels, and biome labels.",
+            },
+            {
+                title: "Garden memory",
+                description:
+                    "Compares newly generated plants with saved browser-local garden data to surface changes over time.",
+            },
+            {
+                title: "Interactive interface",
+                description:
+                    "Uses React and TypeScript to manage username searches, time-period selection, plant details, and demo mode.",
+            },
+        ],
+        links: [
+            {
+                label: "Visit Scrobble Garden",
+                href: "https://ellipticbean.github.io/scrobble-garden/",
+            },
+            {
+                label: "View Source",
+                href: "https://github.com/ellipticbean/scrobble-garden",
+            },
+        ],
+    },
+
     {
         slug: "melo",
         name: "Melo",
