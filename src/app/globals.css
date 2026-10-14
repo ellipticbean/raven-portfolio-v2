@@ -46,7 +46,7 @@
   --page-width: 1280px;
 
   /* Theme-aware effects */
-  --page-glow: rgba(108, 140, 255, 0.13);
+  --page-glow: rgba(165, 216, 142, 0.10);
   --glass-background: rgba(18, 23, 34, 0.72);
   --glass-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.025);
@@ -84,7 +84,7 @@ html[data-theme="light"] {
   --warning: #a87318;
   --danger: #c95050;
 
-  --page-glow: rgba(73, 104, 223, 0.11);
+  --page-glow: rgba(140, 68, 15, 0.08);
   --glass-background: rgba(255, 255, 255, 0.78);
   --glass-shadow: 0 20px 60px rgba(45, 55, 80, 0.12);
   --glass-inset: inset 0 1px 0 rgba(255, 255, 255, 0.9);
