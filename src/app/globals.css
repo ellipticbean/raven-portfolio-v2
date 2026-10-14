@@ -321,7 +321,7 @@ html[data-theme="light"] .hover\:text-white:hover {
   --page-width: 1180px;
 }
 html[data-theme="light"] {
-  --accent: #ab591d;
+  --accent: #8c440f;
   --accent-bright: #8c440f;
   --accent-deep: #c76f30;
   --accent-soft: rgba(171, 89, 29, .10);

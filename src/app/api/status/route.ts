@@ -151,13 +151,40 @@ export async function GET() {
             checkedAt,
         };
     }
-    const statuses: ProjectStatus[] = [
-        {
+
+    let scrobbleStatus: ProjectStatus = {
+        slug: "scrobble-city",
+        status: "unknown",
+        label: "Unknown",
+        checkedAt,
+    };
+
+    try {
+        const response = await fetch(
+            "https://ellipticbean.github.io/scrobble-city/",
+            {
+                cache: "no-store",
+                signal: AbortSignal.timeout(5000),
+            }
+        );
+
+        scrobbleStatus = {
             slug: "scrobble-city",
-            status: "live",
-            label: "Live Beta",
+            status: response.ok ? "live" : "offline",
+            label: response.ok ? "Live Beta" : "Offline",
             checkedAt,
-        },
+        };
+    } catch {
+        scrobbleStatus = {
+            slug: "scrobble-city",
+            status: "offline",
+            label: "Offline",
+            checkedAt,
+        };
+    }
+
+    const statuses: ProjectStatus[] = [
+        scrobbleStatus,
         commissionStatus,
         tf2Status,
         gameNightStatus,
