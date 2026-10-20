@@ -57,9 +57,14 @@ export default function LastFmStatus() {
   }, []);
 
   useEffect(() => {
-    void refresh();
+    // Defer the initial request out of the effect body to avoid a synchronous
+    // state-update cascade while still fetching as soon as the component mounts.
+    const initialRefresh = window.setTimeout(() => void refresh(), 0);
     const interval = window.setInterval(() => void refresh(), 60_000);
-    return () => window.clearInterval(interval);
+    return () => {
+      window.clearTimeout(initialRefresh);
+      window.clearInterval(interval);
+    };
   }, [refresh]);
 
   const playing = Boolean(track?.nowPlaying);
