@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import CommandPaletteLauncher from "@/components/CommandPaletteLauncher";
 import SkillsExplorer from "@/components/SkillsExplorer";
 import ActivityTimeline from "@/components/ActivityTimeline";
