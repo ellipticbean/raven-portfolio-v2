@@ -10,14 +10,6 @@ import LastFmStatus from "@/components/LastFmStatus";
 import ProjectFolders from "@/components/ProjectFolders";
 import { projects } from "@/data/projects";
 
-function StatusDot() {
-  return (
-    <span
-      aria-hidden="true"
-      className="inline-block h-2 w-2 rounded-full bg-success shadow-[0_0_12px_rgba(102,217,163,0.8)]"
-    />
-  );
-}
 
 export default function Home() {
   return (
