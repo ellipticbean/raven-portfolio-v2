@@ -24,6 +24,8 @@ export default defineConfig({
       ...responseStore.applicationWorker.env,
       ASSETS: bindings.assets(),
       IMAGES: bindings.images(),
+      GUESTBOOK_DB: bindings.d1({ name: "raven-portfolio-guestbook", id: "b89a9652-1d79-4feb-a1ae-6d9921405447" }),
+      GUESTBOOK_ADMIN_TOKEN: bindings.secret(),
     },
   }),
 });

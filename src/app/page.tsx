@@ -57,6 +57,13 @@ export default function Home() {
           </a>
 
           <a
+            href="/guestbook"
+            className="transition-colors hover:text-white"
+          >
+            Guestbook
+          </a>
+
+          <a
             href="#contact"
             className="transition-colors hover:text-white"
           >
