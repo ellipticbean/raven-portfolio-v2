@@ -766,3 +766,77 @@ a.retro-music-content:hover{background:#ffffff08}
 .retro-folder-link{margin-top:auto;padding-top:18px;color:#f3a34b;font-size:10px;letter-spacing:.1em}
 @media(max-width:640px){.retro-folder-items{grid-template-columns:minmax(0,1fr)}.retro-folder-summary{gap:10px;padding:15px 12px}.retro-folder-description{line-height:1.5}.retro-folder-count{display:none}.retro-music-content{gap:10px;padding:12px}.retro-music-art{flex-basis:58px;width:58px;height:58px}}
 @media(prefers-reduced-motion:reduce){.retro-music-bars i{animation:none}.retro-folder-chevron,.retro-folder-card{transition:none}}
+
+
+/* =========================================================
+   OLD-SCHOOL WEB PERSONALITY — FOREST GREEN + AMBER
+   ========================================================= */
+:root {
+  --accent: #e9a04b;
+  --accent-bright: #ffc16b;
+  --accent-deep: #b96d27;
+  --accent-soft: rgba(233, 160, 75, .14);
+  --accent-glow: rgba(233, 160, 75, .26);
+  --cyan: #a9c98b;
+  --page-glow: rgba(103, 145, 76, .16);
+  --background: #07110b;
+  --surface-1: #0b1910;
+  --surface-2: #102318;
+  --surface-3: #183021;
+  --surface-hover: #1d3927;
+  --border: #294632;
+  --border-strong: #456b43;
+  --glass-background: rgba(12, 29, 18, .82);
+}
+html[data-theme="light"] {
+  --accent: #a45a1b;
+  --accent-bright: #854510;
+  --accent-deep: #743b0d;
+  --accent-soft: rgba(164, 90, 27, .12);
+  --accent-glow: rgba(164, 90, 27, .2);
+  --cyan: #466e3e;
+  --page-glow: rgba(95, 128, 58, .13);
+  --background: #f4f2df;
+  --surface-1: #fffef4;
+  --surface-2: #eef0d9;
+  --surface-3: #e1e7c8;
+  --surface-hover: #dce4c1;
+  --border: #c6d0ad;
+  --border-strong: #91a47b;
+  --glass-background: rgba(255, 255, 242, .86);
+}
+
+/* Windows, hand-made web buttons, and tiny status labels */
+.retro-site-header { border-bottom: 1px solid var(--border); }
+.retro-brand { text-shadow: 0 0 18px var(--accent-glow); }
+.retro-profile-window,
+.retro-project-folder,
+.retro-music-panel,
+.glass-panel { border-radius: 6px; }
+.retro-profile-titlebar {
+  background: linear-gradient(90deg, #21442c, #102519 72%);
+  color: #f5edcf;
+  border-bottom: 1px solid #456b43;
+}
+html[data-theme="light"] .retro-profile-titlebar {
+  background: linear-gradient(90deg, #dbe8bd, #edf0d7 72%);
+  color: #294329;
+}
+.retro-profile-button {
+  border: 1px solid var(--border-strong);
+  border-radius: 3px;
+  box-shadow: 2px 2px 0 rgba(0,0,0,.28);
+}
+.retro-profile-button.primary {
+  background: #e9a04b;
+  border-color: #ffc16b;
+  color: #182014;
+}
+.retro-profile-button:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0 rgba(0,0,0,.3); }
+.retro-status-details > summary { border-radius: 3px; }
+
+/* Reduced clutter on narrow screens; keep the handmade details readable. */
+@media (max-width: 680px) {
+  .retro-site-header { gap: 10px; }
+  .retro-brand { letter-spacing: .12em; }
+}
