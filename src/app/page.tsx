@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import CommandPaletteLauncher from "@/components/CommandPaletteLauncher";
 import SkillsExplorer from "@/components/SkillsExplorer";
 import ActivityTimeline from "@/components/ActivityTimeline";
@@ -7,16 +6,10 @@ import LiveProjectStatus from "@/components/LiveProjectStatus";
 import Terminal from "@/components/Terminal";
 import ProjectInquiryForm from "@/components/ProjectInquiryForm";
 import ThemeToggle from "@/components/ThemeToggle";
+import LastFmStatus from "@/components/LastFmStatus";
+import ProjectFolders from "@/components/ProjectFolders";
 import { projects } from "@/data/projects";
 
-function StatusDot() {
-  return (
-    <span
-      aria-hidden="true"
-      className="inline-block h-2 w-2 rounded-full bg-success shadow-[0_0_12px_rgba(102,217,163,0.8)]"
-    />
-  );
-}
 
 export default function Home() {
   return (
@@ -140,6 +133,8 @@ export default function Home() {
         </div>
 
 
+        <LastFmStatus />
+
         <details className="retro-status-details">
           <summary className="mono">▸ live project status</summary>
           <div className="mt-4 max-w-xl">
@@ -169,107 +164,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-2">
-          {projects.map((project, index) => (
-            <Link
-              key={project.name}
-              href={`/projects/${project.slug}`}
-              className={`group glass-panel retro-project-card flex min-h-[360px] flex-col rounded-[var(--radius-lg)] p-6 transition duration-300 hover:-translate-y-1 ${project.slug === "scrobble-city" ? "retro-featured-card lg:col-span-2" : ""}`}
-            >
-              <div className="retro-card-titlebar mono" aria-hidden="true">
-                <span>{project.slug === "scrobble-city" ? "★ FEATURED // SCROBBLE_CITY.EXE" : `PROJECT_${String(index + 1).padStart(2, "0")}.EXE`}</span>
-                <span>□ ─ ×</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="mono text-[11px] uppercase tracking-[0.16em] text-[var(--text-muted)]">
-                  0{index + 1}
-                </span>
-
-                <span className="mono flex items-center gap-2 text-[10px] uppercase tracking-[0.12em] text-success">
-                  <StatusDot />
-                  {project.status}
-                </span>
-              </div>
-
-              {project.media?.[0] && (
-                <div className="mt-6 overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--surface-1)]">
-                  <Image
-                    src={
-                      project.slug === "game-night-roulette"
-                        ? "/projects/game-night-roulette/result.png"
-                        : project.media[0].src
-                    }
-                    alt={
-                      project.slug === "game-night-roulette"
-                        ? "Game Night Roulette selected game result"
-                        : project.media[0].alt
-                    }
-                    width={1200}
-                    height={675}
-                    unoptimized
-                    className={`w-full object-cover object-top transition duration-500 group-hover:scale-[1.02] ${project.slug === "scrobble-city" ? "h-60" : "h-40"}`}
-                  />
-                </div>
-              )}
-
-              <div className="mt-6 flex flex-1 flex-col">
-                <p className="mono mb-3 text-xs uppercase tracking-[0.14em] text-accent">
-                  {project.type}
-                </p>
-
-                <h3 className="text-xl font-semibold tracking-[-0.025em] text-white">
-                  {project.name}
-                </h3>
-
-                <p className="mt-4 text-sm leading-7 text-[var(--text-secondary)]">
-                  {project.description}
-                </p>
-
-                {project.metrics && project.metrics.length > 0 && (
-                  <div className="mt-5 grid grid-cols-2 gap-2">
-                    {project.metrics.slice(0, 2).map((metric) => (
-                      <div
-                        key={metric.label}
-                        className="rounded-lg border border-[var(--border)] bg-[var(--surface-1)] px-3 py-2.5"
-                      >
-                        <p className="text-sm font-semibold text-white">
-                          {metric.value}
-                        </p>
-
-                        <p className="mono mt-1 text-[9px] uppercase tracking-[0.1em] text-[var(--text-muted)]">
-                          {metric.label}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {project.tech.map((item) => (
-                    <span
-                      key={item}
-                      className="mono rounded-md border border-[var(--border)] bg-[var(--surface-1)] px-2.5 py-1.5 text-[10px] text-[var(--text-muted)]"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="mt-auto pt-7">
-                  <div className="flex items-center justify-between border-t border-[var(--border)] pt-5">
-                    <span className="mono text-[10px] uppercase tracking-[0.14em] text-[var(--text-muted)]">
-                      {project.slug === "scrobble-city" ? "Explore the city & case study" : "View case study"}
-                    </span>
-
-                    <span className="text-accent transition-transform duration-300 group-hover:translate-x-1">
-                      →
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+        <ProjectFolders projects={projects} />
       </section>
       <SkillsExplorer />
       <ActivityTimeline />

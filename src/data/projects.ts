@@ -12,8 +12,11 @@ export type ProjectSection = {
     description: string;
 };
 
+export type ProjectCategory = "Bots" | "Websites" | "Other Projects";
+
 export type Project = {
     slug: string;
+    category?: ProjectCategory;
     name: string;
     type: string;
     description: string;
@@ -42,6 +45,7 @@ export type Project = {
 export const projects: Project[] = [
     {
         slug: "scrobble-city",
+        category: "Websites",
         name: "Scrobble City",
         type: "Interactive Web App",
         description:
@@ -125,6 +129,7 @@ export const projects: Project[] = [
 
     {
         slug: "scrobble-garden",
+        category: "Websites",
         name: "Scrobble Garden",
         type: "Interactive Web App",
         description:
@@ -213,6 +218,7 @@ export const projects: Project[] = [
 
     {
         slug: "melo",
+        category: "Bots",
         name: "Melo",
         type: "Discord Bot",
         description:
@@ -290,6 +296,7 @@ export const projects: Project[] = [
     },
     {
         slug: "creator-commission-manager",
+        category: "Bots",
         name: "Creator Commission Manager",
         type: "Discord Bot",
         description:
@@ -435,6 +442,7 @@ export const projects: Project[] = [
     },
     {
         slug: "tf2-random-map-picker",
+        category: "Bots",
         name: "TF2 Random Map Picker",
         type: "Discord Bot",
         description:
@@ -574,6 +582,7 @@ export const projects: Project[] = [
     },
     {
         slug: "game-night-roulette",
+        category: "Websites",
         name: "Game Night Roulette",
         type: "Web App",
         description:
