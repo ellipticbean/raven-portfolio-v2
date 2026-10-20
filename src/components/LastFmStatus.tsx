@@ -17,7 +17,10 @@ type Feed = { tracks?: Track[] };
 
 function timeLabel(timestamp?: string | number) {
   if (!timestamp) return "Last scrobble";
-  const date = new Date(timestamp);
+  // Last.fm timestamps are often Unix seconds; ISO strings and millisecond values are also supported.
+  const date = typeof timestamp === "number" && timestamp < 10_000_000_000
+    ? new Date(timestamp * 1000)
+    : new Date(timestamp);
   if (Number.isNaN(date.getTime())) return "Last scrobble";
   return date.toLocaleString([], {
     month: "short",
