@@ -33,7 +33,10 @@ export default function Guestbook() {
     }
   }
 
-  useEffect(() => { void loadEntries(); }, []);
+  useEffect(() => {
+    const timer = window.setTimeout(() => { void loadEntries(); }, 0);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   async function submitEntry(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -83,6 +86,7 @@ export default function Guestbook() {
         <p className="retro-guestbook-status" aria-live="polite">{status}</p>
       </form>
 
+      <p className="mono retro-guestbook-counter">VISITOR COUNTER: {visitorCount === null ? "…" : visitorCount.toLocaleString()}</p>
       <section className="retro-guestbook-entries" aria-labelledby="guestbook-entries-heading">
         <div className="retro-guestbook-section-heading">
           <h2 id="guestbook-entries-heading">Notes from visitors</h2>
