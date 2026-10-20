@@ -840,3 +840,43 @@ html[data-theme="light"] .retro-profile-titlebar {
   .retro-site-header { gap: 10px; }
   .retro-brand { letter-spacing: .12em; }
 }
+
+
+/* Guestbook: a small handmade corner of the web */
+.retro-guestbook-topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}
+.retro-guestbook-back{color:#f3a34b;font-size:11px;letter-spacing:.04em}
+.retro-guestbook-back:hover{text-decoration:underline;text-underline-offset:4px}
+.retro-guestbook-stamp{border:1px dashed var(--border-strong);padding:7px 10px;color:var(--text-muted);font-size:9px;letter-spacing:.12em}
+.retro-guestbook-window{max-width:1000px;margin:0 auto;overflow:hidden;border:1px solid var(--border-strong);background:var(--glass-background);box-shadow:0 18px 55px #0004}
+.retro-guestbook-titlebar{display:flex;justify-content:space-between;gap:12px;padding:12px 16px;background:linear-gradient(90deg,#21442c,#102519 72%);border-bottom:1px solid var(--border-strong);color:#f5edcf;font-size:11px}
+html[data-theme="light"] .retro-guestbook-titlebar{background:linear-gradient(90deg,#dbe8bd,#edf0d7 72%);color:#294329}
+.retro-guestbook-inner{padding:clamp(20px,5vw,48px)}
+.retro-guestbook-kicker{color:#f3a34b;font-size:10px;letter-spacing:.14em}
+.retro-guestbook-inner h1{margin-top:12px;color:var(--text-primary);font-size:clamp(34px,6vw,54px);font-weight:800;letter-spacing:-.055em;line-height:1.08}
+.retro-guestbook-intro{max-width:620px;margin-top:18px;color:var(--text-secondary);font-size:14px;line-height:1.9}
+.retro-guestbook-notice{display:flex;gap:12px;align-items:flex-start;margin-top:24px;padding:13px 15px;border:1px dashed var(--border-strong);background:var(--accent-soft);color:var(--text-secondary);font-size:12px;line-height:1.7}
+.retro-guestbook-notice span{color:#f3a34b;font-size:18px}
+.retro-guestbook-layout{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:32px;margin-top:34px}
+.retro-guestbook-form{display:flex;flex-direction:column;align-items:stretch;gap:10px}
+.retro-guestbook-form label{margin-top:5px;color:var(--text-primary);font-size:12px;font-weight:700}
+.retro-guestbook-form input,.retro-guestbook-form textarea{width:100%;border:1px solid var(--border-strong);border-radius:3px;background:var(--surface-1);padding:12px;color:var(--text-primary);font-size:13px;outline-offset:3px}
+.retro-guestbook-form input:focus,.retro-guestbook-form textarea:focus{outline:2px solid #e9a04b}
+.retro-guestbook-form textarea{resize:vertical;line-height:1.7}
+.retro-guestbook-form-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-top:4px}
+.retro-guestbook-form-bottom span{color:var(--text-muted);font-size:9px}
+.retro-guestbook-form-bottom button{border:1px solid #ffc16b;border-radius:3px;background:#e9a04b;padding:10px 13px;color:#182014;font-size:11px;font-weight:800;cursor:pointer;box-shadow:2px 2px 0 #0005}
+.retro-guestbook-form-bottom button:hover:not(:disabled){transform:translate(-1px,-1px);box-shadow:3px 3px 0 #0005}
+.retro-guestbook-form-bottom button:disabled{cursor:not-allowed;opacity:.55}
+.retro-guestbook-status{min-height:36px;color:var(--text-muted);font-size:11px;line-height:1.6}
+.retro-guestbook-section-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--border);padding-bottom:12px}
+.retro-guestbook-section-heading h2{color:var(--text-primary);font-size:16px;font-weight:800}
+.retro-guestbook-section-heading span{color:#f3a34b;font-size:11px}
+.retro-guestbook-empty{padding:20px 0;color:var(--text-muted);font-size:12px;line-height:1.7}
+.retro-guestbook-list{display:grid;gap:12px;margin:14px 0 0;padding:0;list-style:none}
+.retro-guestbook-entry{border:1px solid var(--border);background:var(--surface-1);padding:14px}
+.retro-guestbook-entry-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+.retro-guestbook-entry-meta strong{color:#f3a34b;font-size:12px;overflow-wrap:anywhere}
+.retro-guestbook-entry-meta time{color:var(--text-muted);font:10px var(--font-geist-mono),monospace}
+.retro-guestbook-entry p{margin-top:10px;color:var(--text-secondary);font-size:12px;line-height:1.8;white-space:pre-wrap;overflow-wrap:anywhere}
+.retro-guestbook-footer{margin-top:38px;border-top:1px dashed var(--border);padding-top:16px;color:var(--text-muted);font-size:9px;letter-spacing:.09em;text-align:center}
+@media(max-width:760px){.retro-guestbook-layout{grid-template-columns:minmax(0,1fr);gap:28px}.retro-guestbook-inner{padding:22px 18px}.retro-guestbook-titlebar{font-size:10px}.retro-guestbook-topbar{align-items:flex-start;flex-direction:column}}
