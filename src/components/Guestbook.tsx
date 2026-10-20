@@ -15,14 +15,16 @@ export default function Guestbook() {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("Loading the guestbook…");
   const [loading, setLoading] = useState(true);
+  const [visitorCount, setVisitorCount] = useState<number | null>(null);
   const [sending, setSending] = useState(false);
 
   async function loadEntries() {
     try {
       const response = await fetch("/api/guestbook", { cache: "no-store" });
       if (!response.ok) throw new Error("Guestbook unavailable");
-      const data = (await response.json()) as { entries: GuestbookEntry[] };
+      const data = (await response.json()) as { entries: GuestbookEntry[]; visitorCount?: number };
       setEntries(data.entries);
+      setVisitorCount(typeof data.visitorCount === "number" ? data.visitorCount : null);
       setStatus(data.entries.length ? "Thanks for stopping by!" : "Be the first to sign the guestbook.");
     } catch {
       setStatus("The guestbook is getting its little mailbox installed. Please check back soon.");
@@ -42,7 +44,7 @@ export default function Guestbook() {
       const response = await fetch("/api/guestbook", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ name, message }),
+        body: JSON.stringify({ name, message, website: (event.currentTarget.elements.namedItem("website") as HTMLInputElement | null)?.value ?? "" }),
       });
       const data = (await response.json()) as { error?: string; entry?: GuestbookEntry };
       if (!response.ok || !data.entry) throw new Error(data.error || "Could not save your note.");
@@ -60,6 +62,10 @@ export default function Guestbook() {
   return (
     <div className="retro-guestbook-layout">
       <form className="retro-guestbook-form" onSubmit={submitEntry}>
+        <div className="retro-guestbook-honeypot" aria-hidden="true">
+          <label htmlFor="guestbook-website">Leave this field empty</label>
+          <input id="guestbook-website" name="website" tabIndex={-1} autoComplete="off" />
+        </div>
         <label htmlFor="guestbook-name">Your name / nickname</label>
         <input id="guestbook-name" name="name" autoComplete="nickname" maxLength={40}
           value={name} onChange={(event) => setName(event.target.value)}
