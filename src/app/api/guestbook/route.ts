@@ -24,21 +24,28 @@ function database() {
   return { db: bindings.GUESTBOOK_DB, bindings };
 }
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
     const { db } = database();
     const result = await db.prepare(
       "SELECT id, name, message, created_at FROM guestbook_entries WHERE moderation_status = 'visible' ORDER BY id DESC LIMIT 50"
     ).all<EntryRow>();
+    const alreadyCounted = request.headers.get("cookie")?.split(";").some((part) => part.trim().startsWith("raven_guestbook_seen=")) ?? false;
+    if (!alreadyCounted) {
+      await db.prepare("UPDATE guestbook_stats SET value = value + 1 WHERE key = 'page_views'").run();
+    }
     const count = await db.prepare(
       "SELECT value FROM guestbook_stats WHERE key = 'page_views'"
     ).first<{ value: number }>();
-    return json({
+    const response = json({
       entries: (result.results ?? []).map((row) => ({
         id: row.id, name: row.name, message: row.message, createdAt: row.created_at,
       })),
       visitorCount: count?.value ?? 0,
     });
+    if (alreadyCounted) return response;
+    response.headers.append("set-cookie", "raven_guestbook_seen=1; Path=/; Max-Age=2592000; Secure; SameSite=Lax; HttpOnly");
+    return response;
   } catch {
     return json({ error: "Guestbook storage is not configured yet.", entries: [] }, 503);
   }
