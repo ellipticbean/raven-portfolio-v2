@@ -882,3 +882,5 @@ html[data-theme="light"] .retro-guestbook-titlebar{background:linear-gradient(90
 @media(max-width:760px){.retro-guestbook-layout{grid-template-columns:minmax(0,1fr);gap:28px}.retro-guestbook-inner{padding:22px 18px}.retro-guestbook-titlebar{font-size:10px}.retro-guestbook-topbar{align-items:flex-start;flex-direction:column}}
 
 .retro-guestbook-honeypot{position:absolute!important;left:-10000px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important;}
+
+.retro-guestbook-counter{margin:0 0 18px;color:var(--text-muted);font-size:10px;letter-spacing:.08em}
