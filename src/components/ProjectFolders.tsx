@@ -2,28 +2,24 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import type { Project } from "@/data/projects";
+import type { Project, ProjectCategory } from "@/data/projects";
 
-type Folder = { name: string; marker: string; description: string; slugs: string[] };
+type Folder = { name: ProjectCategory; marker: string; description: string };
 
 const folders: Folder[] = [
-  { name: "Bots", marker: "01", description: "Bots, automation, and community tools.", slugs: ["tf2-random-map-picker", "melo", "creator-commission-manager"] },
-  { name: "Websites", marker: "02", description: "Interactive websites and browser-based experiments.", slugs: ["scrobble-city", "scrobble-garden", "game-night-roulette"] },
-  { name: "Other Projects", marker: "03", description: "A home for experiments that don’t fit the folders above.", slugs: [] },
+  { name: "Bots", marker: "01", description: "Bots, automation, and community tools." },
+  { name: "Websites", marker: "02", description: "Interactive websites and browser-based experiments." },
+  { name: "Other Projects", marker: "03", description: "A home for experiments that don’t fit the folders above." },
 ];
 
-function category(project: Project) {
-  if (folders[0].slugs.includes(project.slug)) return "Bots";
-  if (folders[1].slugs.includes(project.slug)) return "Websites";
-  return "Other Projects";
+function category(project: Project): ProjectCategory {
+  return project.category ?? "Other Projects";
 }
 
 export default function ProjectFolders({ projects }: { projects: Project[] }) {
   const populated = folders.map((folder) => ({
     ...folder,
-    items: folder.name === "Other Projects"
-      ? projects.filter((project) => !folders[0].slugs.includes(project.slug) && !folders[1].slugs.includes(project.slug))
-      : projects.filter((project) => folder.slugs.includes(project.slug)),
+    items: projects.filter((project) => category(project) === folder.name),
   })).filter((folder) => folder.items.length > 0);
 
   return (
